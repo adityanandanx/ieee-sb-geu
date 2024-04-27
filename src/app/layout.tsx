@@ -3,6 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { fontSans } from "@/lib/fonts";
+import { Nav } from "@/components/shared/nav";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,11 +19,12 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased dark",
+          "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}
       >
-        <main className="max-w-screen-2xl mx-auto p-5">{children}</main>
+        <Nav />
+        <main className="max-w-screen-xl mx-auto p-5">{children}</main>
       </body>
     </html>
   );

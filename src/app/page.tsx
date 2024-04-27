@@ -1,5 +1,10 @@
-import Image from "next/image";
+import { Heading, Paragraph } from "@/components/ui/typography";
+import { Hero } from "./(home)/_sections";
 
 export default function Home() {
-  return <main>Hello world</main>;
+  return (
+    <main>
+      <Hero />
+    </main>
+  );
 }

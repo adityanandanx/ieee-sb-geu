@@ -1,19 +1,66 @@
+"use client";
 import Link from "next/link";
-import React from "react";
-import { Button } from "../../ui/button";
-import Image from "next/image";
-import logoImg from "../assets/logo.svg";
+import React, { useEffect, useState } from "react";
 import { NavLinks } from "./NavLinks";
 import { Logo } from "@/components/logo";
+import { Variants, motion } from "framer-motion";
+
+const navVariants: Variants = {
+  noBg: {
+    backgroundColor: "rgba(0, 0, 0, 0)",
+    backdropFilter: "blur(0px)",
+    borderColor: "rgba(0, 0, 0, 0)",
+  },
+  bg: {
+    backgroundColor: "rgba(0, 0, 0, .25)",
+    backdropFilter: "blur(12px)",
+  },
+  hidden: {
+    opacity: 0,
+    y: "-100%",
+  },
+  visible: {
+    opacity: 1,
+    y: "0%",
+    transition: {
+      delay: 0.75,
+      duration: "0.5",
+      ease: "anticipate",
+    },
+  },
+};
 
 type Props = {};
 
-export const Nav = async (props: Props) => {
+export const Nav = (props: Props) => {
+  const [bg, setBg] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setBg(true);
+      } else {
+        setBg(false);
+      }
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="px-5 py-2 border-b sticky top-0 w-full bg-background/25 backdrop-blur-md z-50">
-      <nav className="max-w-screen-xl mx-auto flex justify-between items-center">
-        <Link href={"/"} className="flex items-center gap-4">
-          <Logo className="w-32" />
+    <motion.header
+      initial={"hidden"}
+      variants={navVariants}
+      animate={[bg ? "bg" : "noBg", "visible"]}
+      className="py-5 fixed top-0 w-full z-50"
+    >
+      <nav className="container flex justify-between items-center">
+        <Link
+          href={"/"}
+          className="flex items-end leading-5 gap-4 font-bold font-syne text-lg"
+        >
+          <Logo variant="white" className="w-24" /> SB GEU
         </Link>
         <NavLinks>
           <Link href="/events">Events</Link>
@@ -44,6 +91,6 @@ export const Nav = async (props: Props) => {
           </div> */}
         </NavLinks>
       </nav>
-    </header>
+    </motion.header>
   );
 };

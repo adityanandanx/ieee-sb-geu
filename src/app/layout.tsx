@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { fontSans } from "@/lib/fonts";
+import { fontSans, fontSyne } from "@/lib/fonts";
 import { Nav } from "@/components/shared/nav";
+import { Providers } from "@/components/providers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,16 +17,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
-      >
-        <Nav />
-        <main className="max-w-screen-xl mx-auto p-5">{children}</main>
-      </body>
-    </html>
+    <Providers>
+      <html lang="en">
+        <body
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased dark overflow-x-hidden",
+            fontSans.variable,
+            fontSyne.variable
+          )}
+        >
+          <Nav />
+          <main className="">{children}</main>
+        </body>
+      </html>
+    </Providers>
   );
 }

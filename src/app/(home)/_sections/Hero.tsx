@@ -46,7 +46,7 @@ export const Hero = (props: Props) => {
           </FadeIn>
         </div>
       </div>
-      <div className="container py-5 flex flex-wrap justify-end items-center gap-4 md:gap-10 overflow-y-hidden">
+      <div className="container py-5 flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-10 overflow-y-hidden">
         <Logo className="h-6 md:h-8" />
         <Image
           src={accolladeLogo}

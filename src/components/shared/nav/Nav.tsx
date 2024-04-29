@@ -1,9 +1,9 @@
 "use client";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { NavLinks } from "./NavLinks";
 import { Logo } from "@/components/logo";
 import { Variants, motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatedLink } from "@/components/ui/animated-link";
+import { NavLinks } from "./NavLinks";
 
 const navVariants: Variants = {
   noBg: {
@@ -23,7 +23,6 @@ const navVariants: Variants = {
     opacity: 1,
     y: "0%",
     transition: {
-      delay: 0.75,
       duration: "0.5",
       ease: "anticipate",
     },
@@ -56,19 +55,21 @@ export const Nav = (props: Props) => {
       className="py-5 fixed top-0 w-full z-50"
     >
       <nav className="container flex justify-between items-center">
-        <Link
+        <AnimatedLink
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           href={"/"}
           className="flex items-end leading-5 gap-4 font-bold font-syne text-lg"
         >
           <Logo variant="white" className="w-24" /> SB GEU
-        </Link>
+        </AnimatedLink>
         <NavLinks>
-          <Link href="/events">Events</Link>
-          <Link href="/about">About</Link>
-          <Link href="/gallery">Gallery</Link>
-          <Link href="#" target="_blank">
+          <AnimatedLink href="/events">Events</AnimatedLink>
+          <AnimatedLink href="/about">About</AnimatedLink>
+          <AnimatedLink href="/gallery">Gallery</AnimatedLink>
+          <AnimatedLink href="#" target="_blank">
             Contact
-          </Link>
+          </AnimatedLink>
           {/* {user ? (
             <Link href="/dashboard">
               <Button size={"sm"}>Dashboard</Button>

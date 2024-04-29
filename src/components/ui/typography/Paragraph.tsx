@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import React, { HTMLAttributes, createElement, forwardRef } from "react";
 
-const paragraphVariants = cva("text-base", {
+const paragraphVariants = cva("text-base mb-2", {
   variants: {
     variant: {
       default: "text-foreground",

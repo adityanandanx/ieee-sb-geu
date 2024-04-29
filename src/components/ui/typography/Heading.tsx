@@ -1,8 +1,15 @@
 "use client";
+import { fadeInMotionVariants } from "@/components/motion";
 import { cn } from "@/lib/utils";
 import { VariantProps, cva } from "class-variance-authority";
-import { MotionProps, Variants, motion } from "framer-motion";
-import React, { HTMLAttributes, createElement, forwardRef } from "react";
+import { MotionProps, Variants, motion, useInView } from "framer-motion";
+import React, {
+  ComponentPropsWithRef,
+  HTMLAttributes,
+  createElement,
+  forwardRef,
+  useRef,
+} from "react";
 
 const headingVariants = cva("font-medium font-syne", {
   variants: {
@@ -42,10 +49,35 @@ const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
       },
       children
     );
-    return <>{Wrapper}</>;
+    return Wrapper;
   }
 );
 
+const MotionHeading = motion(Heading);
+interface FadeInHeadingProps
+  extends ComponentPropsWithRef<typeof MotionHeading> {}
+
+const FadeInHeading = ({
+  initial,
+  animate,
+  variants,
+  transition,
+  ...props
+}: FadeInHeadingProps) => {
+  const ref = useRef(null);
+  const inView = useInView(ref);
+  return (
+    <MotionHeading
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      transition={{ ease: "backInOut", duration: 0.5, ...transition }}
+      variants={variants || fadeInMotionVariants}
+      {...props}
+    />
+  );
+};
+
 Heading.displayName = "Heading";
 
-export { Heading, headingVariants };
+export { Heading, MotionHeading, FadeInHeading, headingVariants };

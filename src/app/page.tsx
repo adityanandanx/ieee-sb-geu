@@ -1,10 +1,11 @@
 import { Heading, Paragraph } from "@/components/ui/typography";
-import { Hero } from "./(home)/_sections";
+import { Hero, Ieee } from "./(home)/_sections";
 
 export default function Home() {
   return (
     <main>
       <Hero />
+      <Ieee />
     </main>
   );
 }

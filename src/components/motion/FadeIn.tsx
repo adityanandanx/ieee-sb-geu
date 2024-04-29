@@ -8,7 +8,7 @@ interface Props extends MotionProps {
   className?: ClassValue;
 }
 
-const fadeInMotionVariants: Variants = {
+export const fadeInMotionVariants: Variants = {
   hidden: {
     opacity: 0,
     y: "2rem",

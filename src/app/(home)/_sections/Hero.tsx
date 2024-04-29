@@ -5,16 +5,19 @@ import hero from "./assets/techlines.jpg";
 import Image from "next/image";
 import { FadeIn } from "@/components/motion";
 import { Pr } from "@/components/ui/typography/Pr";
+import { Logo } from "@/components/logo";
+import accolladeLogo from "./assets/accollade.png";
+import geuLogo from "./assets/geu.png";
 
 type Props = {};
 
 export const Hero = (props: Props) => {
   return (
-    <section className="relative">
+    <section className="relative min-h-svh flex flex-col">
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div
           aria-hidden
-          className="bg-gradient-to-t from-background to-background/25 inset-0 absolute -z-10"
+          className="bg-gradient-to-t from-background to-background/35 inset-0 absolute -z-10"
         ></div>
         <Image
           src={hero}
@@ -24,7 +27,7 @@ export const Hero = (props: Props) => {
           placeholder="blur"
         />
       </div>
-      <div className="container flex items-end min-h-svh py-10">
+      <div className="container flex items-center py-10 flex-1">
         <div className="space-y-3 flex-1">
           <FadeIn transition={{ delay: 0.2 }}>
             <Heading className="">
@@ -42,6 +45,19 @@ export const Hero = (props: Props) => {
             <Button size={"lg"}>Join Us</Button>
           </FadeIn>
         </div>
+      </div>
+      <div className="container py-5 flex flex-wrap justify-end items-center gap-4 md:gap-10 overflow-y-hidden">
+        <Logo className="h-6 md:h-8" />
+        <Image
+          src={accolladeLogo}
+          alt="Accollade Logo"
+          className="h-6 md:h-8 w-auto"
+        />
+        <Image
+          src={geuLogo}
+          alt="Accollade Logo"
+          className="h-6 md:h-8 w-auto"
+        />
       </div>
     </section>
   );

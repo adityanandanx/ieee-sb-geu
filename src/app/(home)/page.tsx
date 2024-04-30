@@ -1,5 +1,4 @@
-import { Heading, Paragraph } from "@/components/ui/typography";
-import { Benefits, Hero, Ieee } from "./(home)/_sections";
+import { Benefits, Hero, Ieee } from "./_sections";
 
 export default function Home() {
   return (

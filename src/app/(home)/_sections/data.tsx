@@ -1,10 +1,4 @@
-import {
-  BookOpenIcon,
-  MicVocalIcon,
-  SpeakerIcon,
-  Users2Icon,
-  UsersIcon,
-} from "lucide-react";
+import { BookOpenIcon, MicVocalIcon, UsersIcon } from "lucide-react";
 import { Benefit } from "./types";
 
 export const benefits: Benefit[] = [

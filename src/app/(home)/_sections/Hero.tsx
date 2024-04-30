@@ -1,12 +1,11 @@
-import { Button } from "@/components/ui/button";
-import { Heading, Paragraph } from "@/components/ui/typography";
-import React from "react";
-import hero from "./assets/techlines.jpg";
-import Image from "next/image";
-import { FadeIn } from "@/components/motion";
-import { Pr } from "@/components/ui/typography/Pr";
 import { Logo } from "@/components/logo";
+import { FadeIn } from "@/components/motion";
+import { Button } from "@/components/ui/button";
+import { Heading } from "@/components/ui/typography";
+import { Pr } from "@/components/ui/typography/Pr";
+import Image from "next/image";
 import geuLogo from "./assets/geu.png";
+import hero from "./assets/techlines.jpg";
 
 type Props = {};
 

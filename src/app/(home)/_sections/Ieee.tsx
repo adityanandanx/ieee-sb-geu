@@ -72,7 +72,7 @@ export const Ieee = (props: Props) => {
 
         <FadeInCard className="col-span-full md:col-span-5">
           <CardHeader>
-            <CardTitle>About IEEE SB GEU</CardTitle>
+            <CardTitle>About IEEE Student Branch GEU</CardTitle>
             <CardDescription></CardDescription>
           </CardHeader>
           <CardContent>

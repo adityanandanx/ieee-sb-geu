@@ -47,17 +47,23 @@ export const Hero = (props: Props) => {
         </div>
       </div>
       <div className="container py-5 flex flex-wrap justify-center md:justify-end items-center gap-4 md:gap-10 overflow-y-hidden">
-        <Logo className="h-6 md:h-8" />
-        <Image
-          src={accolladeLogo}
-          alt="Accollade Logo"
-          className="h-6 md:h-8 w-auto"
-        />
-        <Image
-          src={geuLogo}
-          alt="Accollade Logo"
-          className="h-6 md:h-8 w-auto"
-        />
+        <FadeIn transition={{ delay: 1 }}>
+          <Logo className="h-6 md:h-8" />
+        </FadeIn>
+        <FadeIn transition={{ delay: 1.2 }}>
+          <Image
+            src={accolladeLogo}
+            alt="Accollade Logo"
+            className="h-6 md:h-8 w-auto"
+          />
+        </FadeIn>
+        <FadeIn transition={{ delay: 1.4 }}>
+          <Image
+            src={geuLogo}
+            alt="Accollade Logo"
+            className="h-6 md:h-8 w-auto"
+          />
+        </FadeIn>
       </div>
     </section>
   );

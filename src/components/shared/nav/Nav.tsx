@@ -23,8 +23,8 @@ const navVariants: Variants = {
     opacity: 1,
     y: "0%",
     transition: {
-      duration: "0.5",
-      ease: "anticipate",
+      duration: "1.5",
+      ease: "backOut",
     },
   },
 };

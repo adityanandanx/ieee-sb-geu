@@ -25,7 +25,7 @@ export const NumberCounter = ({
 }: Props) => {
   const [num, setNum] = useState(0);
   const ref = useRef(null);
-  const inView = useInView(ref);
+  const inView = useInView(ref, { once: true });
 
   const val = useSpring(0, {
     bounce: 0,

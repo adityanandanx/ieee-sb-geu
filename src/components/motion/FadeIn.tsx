@@ -21,19 +21,21 @@ export const fadeInMotionVariants: Variants = {
 
 export const FadeIn = ({
   children,
+  initial,
+  animate,
   className,
   transition,
   ...props
 }: Props) => {
   const ref = useRef(null);
-  const inView = useInView(ref);
+  const inView = useInView(ref, { once: true });
   return (
     <motion.div
       ref={ref}
       variants={fadeInMotionVariants}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      transition={{ ease: "backInOut", duration: 0.5, ...transition }}
+      initial={initial || "hidden"}
+      animate={animate || (inView ? "visible" : "hidden")}
+      transition={{ ease: "backInOut", duration: 1, ...transition }}
       className={cn("", className)}
       {...props}
     >

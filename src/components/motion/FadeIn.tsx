@@ -1,6 +1,6 @@
 "use client";
 import React, { HTMLProps, useRef } from "react";
-import { MotionProps, Variants, motion, useInView } from "framer-motion";
+import { MotionProps, Variants, m, useInView } from "framer-motion";
 import { ClassValue } from "clsx";
 import { cn } from "@/lib/utils";
 
@@ -30,7 +30,7 @@ export const FadeIn = ({
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
   return (
-    <motion.div
+    <m.div
       ref={ref}
       variants={fadeInMotionVariants}
       initial={initial || "hidden"}
@@ -40,6 +40,6 @@ export const FadeIn = ({
       {...props}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 };

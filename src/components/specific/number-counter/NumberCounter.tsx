@@ -1,7 +1,7 @@
 "use client";
 import { Card, FadeInCard } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { motion, useInView, useSpring, useTransform } from "framer-motion";
+import { m, useInView, useSpring, useTransform } from "framer-motion";
 import React, {
   ComponentPropsWithoutRef,
   useEffect,
@@ -58,13 +58,13 @@ export const NumberCounter = ({
       )}
       {...props}
     >
-      <motion.span
+      <m.span
         style={{ scale }}
         className="block text-4xl font-display font-bold"
       >
         {num}
         {plus && "+"}
-      </motion.span>
+      </m.span>
       <span className="text-lg">{text}</span>
     </FadeInCard>
   );

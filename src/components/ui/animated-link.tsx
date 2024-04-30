@@ -1,10 +1,10 @@
 "use client";
-import { motion } from "framer-motion";
-import React, { ComponentProps, HTMLProps } from "react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { m } from "framer-motion";
+import Link from "next/link";
+import { ComponentProps } from "react";
 
-const MotionLink = motion(Link);
+const MotionLink = m(Link);
 
 interface Props extends ComponentProps<typeof MotionLink> {}
 

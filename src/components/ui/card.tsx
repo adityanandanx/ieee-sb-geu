@@ -2,7 +2,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { FadeIn } from "../motion";
 
 const Card = React.forwardRef<
@@ -79,7 +79,7 @@ const CardFooter = React.forwardRef<
 ));
 CardFooter.displayName = "CardFooter";
 
-const MotionCard = motion(Card);
+const MotionCard = m(Card);
 
 const FadeInCard = React.forwardRef<
   typeof MotionCard,
@@ -103,12 +103,12 @@ const FadeInCard = React.forwardRef<
 FadeInCard.displayName = "FadeInCard";
 
 export {
-  MotionCard,
-  FadeInCard,
   Card,
-  CardHeader,
-  CardFooter,
-  CardTitle,
-  CardDescription,
   CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  FadeInCard,
+  MotionCard,
 };

@@ -2,8 +2,8 @@
 import { fadeInMotionVariants } from "@/components/motion";
 import { cn } from "@/lib/utils";
 import { VariantProps, cva } from "class-variance-authority";
-import { MotionProps, Variants, motion, useInView } from "framer-motion";
-import React, {
+import { m, useInView } from "framer-motion";
+import {
   ComponentPropsWithRef,
   HTMLAttributes,
   createElement,
@@ -53,7 +53,7 @@ const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
   }
 );
 
-const MotionHeading = motion(Heading);
+const MotionHeading = m(Heading);
 interface FadeInHeadingProps
   extends ComponentPropsWithRef<typeof MotionHeading> {}
 
@@ -65,7 +65,7 @@ const FadeInHeading = ({
   ...props
 }: FadeInHeadingProps) => {
   const ref = useRef(null);
-  const inView = useInView(ref);
+  const inView = useInView(ref, { once: true });
   return (
     <MotionHeading
       ref={ref}
@@ -80,4 +80,4 @@ const FadeInHeading = ({
 
 Heading.displayName = "Heading";
 
-export { Heading, MotionHeading, FadeInHeading, headingVariants };
+export { FadeInHeading, Heading, MotionHeading, headingVariants };

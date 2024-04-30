@@ -1,6 +1,6 @@
 "use client";
 import { Logo } from "@/components/logo";
-import { Variants, motion } from "framer-motion";
+import { Variants, m } from "framer-motion";
 import { useEffect, useState } from "react";
 import { AnimatedLink } from "@/components/ui/animated-link";
 import { NavLinks } from "./NavLinks";
@@ -48,7 +48,7 @@ export const Nav = (props: Props) => {
   }, []);
 
   return (
-    <motion.header
+    <m.header
       initial={"hidden"}
       variants={navVariants}
       animate={[bg ? "bg" : "noBg", "visible"]}
@@ -92,6 +92,6 @@ export const Nav = (props: Props) => {
           </div> */}
         </NavLinks>
       </nav>
-    </motion.header>
+    </m.header>
   );
 };

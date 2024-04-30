@@ -70,7 +70,7 @@ export const Ieee = (props: Props) => {
           />
         </div>
 
-        <FadeInCard className="col-span-full md:col-span-5">
+        <FadeInCard className="col-span-full md:col-span-8">
           <CardHeader>
             <CardTitle>About IEEE Student Branch GEU</CardTitle>
             <CardDescription></CardDescription>
@@ -89,7 +89,7 @@ export const Ieee = (props: Props) => {
 
         <FadeInCard
           fadeInClassName="w-full h-full"
-          className="col-span-full md:col-span-7 relative overflow-hidden"
+          className="col-span-full md:col-span-4 relative overflow-hidden"
         >
           <Image
             className="object-cover h-full w-full aspect-video"

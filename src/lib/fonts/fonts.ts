@@ -1,4 +1,4 @@
-import { Open_Sans as FontSans, Syne } from "next/font/google";
+import { Open_Sans as FontSans, Syne as FontDisplay } from "next/font/google";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -6,7 +6,10 @@ export const fontSans = FontSans({
   variable: "--font-sans",
 });
 
-export const fontSyne = Syne({
+export const fontDisplay = FontDisplay({
   subsets: ["latin"],
-  variable: "--font-syne",
+  // weight: ["400"],
+  // weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  // weight: ["400", "700"],
+  variable: "--font-display",
 });

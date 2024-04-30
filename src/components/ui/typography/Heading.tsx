@@ -11,7 +11,7 @@ import React, {
   useRef,
 } from "react";
 
-const headingVariants = cva("font-medium font-syne", {
+const headingVariants = cva("font-medium font-display", {
   variants: {
     size: {
       "1": "text-5xl md:text-7xl font-bold",

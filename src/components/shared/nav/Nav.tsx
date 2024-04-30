@@ -59,7 +59,7 @@ export const Nav = (props: Props) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           href={"/"}
-          className="flex items-end leading-5 gap-4 font-bold font-syne text-lg"
+          className="flex items-end leading-5 gap-4 font-bold font-display text-lg"
         >
           <Logo variant="white" className="w-24" /> SB GEU
         </AnimatedLink>

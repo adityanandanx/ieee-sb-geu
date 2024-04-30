@@ -30,7 +30,7 @@ export const NumberCounter = ({
   const val = useSpring(0, {
     bounce: 0,
     damping: 30,
-    mass: 1,
+    mass: 0.75,
     stiffness: 200,
   });
   const scale = useTransform(val, [0, n], [0.2, 1]);
@@ -60,7 +60,7 @@ export const NumberCounter = ({
     >
       <motion.span
         style={{ scale }}
-        className="block text-4xl font-syne font-bold"
+        className="block text-4xl font-display font-bold"
       >
         {num}
         {plus && "+"}

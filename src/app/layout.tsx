@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { fontSans, fontSyne } from "@/lib/fonts";
+import { fontSans, fontDisplay } from "@/lib/fonts";
 import { Nav } from "@/components/shared/nav";
 import { Providers } from "@/components/providers";
 
@@ -23,7 +23,7 @@ export default function RootLayout({
           className={cn(
             "min-h-screen bg-background font-sans antialiased dark overflow-x-hidden",
             fontSans.variable,
-            fontSyne.variable
+            fontDisplay.variable
           )}
         >
           <Nav />

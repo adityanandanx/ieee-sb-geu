@@ -15,7 +15,7 @@ const headingVariants = cva("font-medium font-display", {
   variants: {
     size: {
       "1": "text-5xl md:text-7xl font-bold",
-      "2": "text-4xl md:text-5xl",
+      "2": "text-4xl md:text-6xl",
       "3": "text-3xl md:text-4xl",
       "4": "text-2xl md:text-3xl",
       "5": "text-xl md:text-2xl",

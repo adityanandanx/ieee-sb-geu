@@ -93,8 +93,8 @@ const FadeInCard = React.forwardRef<
       ref={ref as React.LegacyRef<HTMLElement | SVGElement>}
       {...props}
     >
-      <div className="bg-primary/10 w-full h-full rounded-full bg-blend-overlay blur-3xl absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 -z-10"></div>
-      <div className="bg-secondary/10 w-full h-full bg-blend-overlay rounded-full blur-3xl absolute right-0 top-full translate-x-1/2 -translate-y-1/2 -z-10"></div>
+      <div className="bg-primary/5 w-full h-full rounded-full bg-blend-overlay blur-3xl absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 -z-10"></div>
+      <div className="bg-secondary/5 w-full h-full bg-blend-overlay rounded-full blur-3xl absolute right-0 top-full translate-x-1/2 -translate-y-1/2 -z-10"></div>
       <FadeIn className={cn("", fadeInClassName)}>{children}</FadeIn>
     </MotionCard>
   );

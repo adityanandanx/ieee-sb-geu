@@ -6,7 +6,6 @@ import Image from "next/image";
 import { FadeIn } from "@/components/motion";
 import { Pr } from "@/components/ui/typography/Pr";
 import { Logo } from "@/components/logo";
-import accolladeLogo from "./assets/accollade.png";
 import geuLogo from "./assets/geu.png";
 
 type Props = {};
@@ -51,13 +50,6 @@ export const Hero = (props: Props) => {
           <Logo className="h-6 md:h-8" />
         </FadeIn>
         <FadeIn transition={{ delay: 1.2 }}>
-          <Image
-            src={accolladeLogo}
-            alt="Accollade Logo"
-            className="h-6 md:h-8 w-auto"
-          />
-        </FadeIn>
-        <FadeIn transition={{ delay: 1.4 }}>
           <Image
             src={geuLogo}
             alt="Accollade Logo"

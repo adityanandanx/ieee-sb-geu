@@ -1,15 +1,17 @@
-import { Open_Sans as FontSans, Syne as FontDisplay } from "next/font/google";
+import {
+  Open_Sans as FontSans,
+  Baloo_Bhai_2 as FontDisplay,
+} from "next/font/google";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700", "800"],
+  preload: true,
   variable: "--font-sans",
 });
 
 export const fontDisplay = FontDisplay({
   subsets: ["latin"],
-  // weight: ["400"],
-  // weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  // weight: ["400", "700"],
+  preload: true,
   variable: "--font-display",
 });

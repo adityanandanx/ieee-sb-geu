@@ -4,7 +4,18 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { fontSans, fontDisplay } from "@/lib/fonts";
 import { Nav } from "@/components/shared/nav";
-import { Providers } from "@/components/providers";
+import dynamic from "next/dynamic";
+import { RootLoading } from "@/components/ui/root-loading";
+
+const Providers = dynamic(
+  () => import("@/components/providers").then((mod) => mod.Providers),
+  {
+    loading() {
+      return <RootLoading />;
+    },
+    ssr: false,
+  }
+);
 
 export const metadata: Metadata = {
   title: "IEEE Student Branch - Graphic Era University",
@@ -18,19 +29,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Providers>
-      <html lang="en">
-        <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased dark overflow-x-hidden",
-            fontSans.variable,
-            fontDisplay.variable
-          )}
-        >
+    <html lang="en">
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased dark overflow-x-hidden",
+          fontSans.variable,
+          fontDisplay.variable
+        )}
+      >
+        <Providers>
           <Nav />
           <main className="">{children}</main>
-        </body>
-      </html>
-    </Providers>
+        </Providers>
+      </body>
+    </html>
   );
 }

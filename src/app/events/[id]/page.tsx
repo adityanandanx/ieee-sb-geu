@@ -18,17 +18,9 @@ const Page = async ({ params: { id } }: Props) => {
   return (
     <>
       <NavSpacer />
-      <div className="container py-10 flex gap-10">
-        {event.event_start && (
-          <Calendar
-            className=""
-            mode="single"
-            defaultMonth={new Date(event.event_start)}
-            selected={new Date(event.event_start)}
-          />
-        )}
-        <div className="flex flex-col">
-          <div className="relative -z-10 flex items-center justify-center h-96 overflow-hidden bg-muted rounded mb-10">
+      <div className="container py-10 flex flex-col gap-10">
+        <div className="flex flex-col md:flex-row gap-10">
+          <div className="relative -z-10 flex items-center justify-center h-96 overflow-hidden bg-muted rounded mb-10 w-full">
             {event.cover_image_url ? (
               <Image
                 width={512}
@@ -47,7 +39,16 @@ const Page = async ({ params: { id } }: Props) => {
               />
             )}
           </div>
-
+          {event.event_start && (
+            <Calendar
+              className="items-center justify-center"
+              mode="single"
+              defaultMonth={new Date(event.event_start)}
+              selected={new Date(event.event_start)}
+            />
+          )}
+        </div>
+        <div className="flex flex-col max-w-screen-md mx-auto mb-48">
           <Heading size={"2"}>{event.title}</Heading>
           <div className="flex items-center gap-4 mb-10">
             <Building2Icon /> {event.venue}

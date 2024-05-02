@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "ui:add": "pnpm dlx shadcn-ui@latest add"
+    "ui:add": "pnpm dlx shadcn-ui@latest add",
+    "gen:dbtypes": "supabase gen types typescript --local > schema.gen.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -21,10 +22,13 @@
     "@supabase/ssr": "^0.3.0",
     "@supabase/supabase-js": "^2.43.0",
     "@tanstack/react-query": "^5.32.1",
+    "@types/lodash": "^4.17.0",
     "@types/three": "^0.164.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
     "framer-motion": "^11.1.7",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.375.0",
     "next": "14.2.3",
     "next-themes": "^0.3.0",

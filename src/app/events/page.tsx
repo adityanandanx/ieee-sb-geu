@@ -1,0 +1,33 @@
+import React, { Suspense } from "react";
+import { EventCards, EventCardsSkeleton } from "./_components/event-cards";
+import { Heading, Paragraph } from "@/components/ui/typography";
+import { NavSpacer } from "@/components/shared/nav/NavSpacer";
+
+type Props = {
+  searchParams: { search: string };
+};
+
+const Page = ({ searchParams }: Props) => {
+  return (
+    <main>
+      <section className="">
+        <NavSpacer />
+        <div className="container py-20">
+          <Heading className="">Events</Heading>
+          <Paragraph className="text-muted-foreground">
+            &quot;Twenty years from now you will be more disappointed by the
+            things that you didn&rsquo;t do than by the ones you did do.&quot; -
+            Mark Twain
+          </Paragraph>
+        </div>
+      </section>
+      <section className="container">
+        <Suspense fallback={<EventCardsSkeleton />}>
+          <EventCards search={searchParams.search} />
+        </Suspense>
+      </section>
+    </main>
+  );
+};
+
+export default Page;

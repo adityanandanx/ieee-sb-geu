@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import { getGalleryImageUrlFromName } from "../utils";
 import { formatTimeStamp } from "@/lib/utils";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: {
@@ -21,6 +22,7 @@ type Props = {
 
 const Page = async ({ params: { id } }: Props) => {
   const event = await getEvent(id);
+  if (!event) notFound();
   return (
     <>
       <NavSpacer />

@@ -29,7 +29,7 @@ export const getEvent = async (eventId: number) => {
     .from("events")
     .select()
     .eq("id", eventId)
-    .single();
-  if (error) throw error;
+    .maybeSingle();
+  if (error) throw new Error(error.message);
   return data;
 };

@@ -1,8 +1,8 @@
 "use client";
 import { Logo } from "@/components/logo";
+import { AnimatedLink, MotionLink } from "@/components/ui/animated-link";
 import { Variants, m } from "framer-motion";
 import { useEffect, useState } from "react";
-import { AnimatedLink } from "@/components/ui/animated-link";
 import { NavLinks } from "./NavLinks";
 
 const navVariants: Variants = {
@@ -55,14 +55,14 @@ export const Nav = (props: Props) => {
       className="py-5 fixed top-0 w-full z-50"
     >
       <nav className="container flex justify-between items-center">
-        <AnimatedLink
+        <MotionLink
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           href={"/"}
           className="flex items-end leading-5 gap-4 font-bold font-display text-lg"
         >
           <Logo variant="white" className="w-24" /> SB GEU
-        </AnimatedLink>
+        </MotionLink>
         <NavLinks>
           <AnimatedLink href="/events">Events</AnimatedLink>
           <AnimatedLink href="/about">About</AnimatedLink>

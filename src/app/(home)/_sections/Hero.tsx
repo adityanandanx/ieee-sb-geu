@@ -25,7 +25,7 @@ export const Hero = (props: Props) => {
           placeholder="blur"
         />
       </div>
-      <div className="container flex items-center py-10 flex-1">
+      <div className="container flex items-center py-20 flex-1">
         <div className="space-y-3 flex-1">
           <FadeIn transition={{ delay: 0.2 }}>
             <Heading className="">

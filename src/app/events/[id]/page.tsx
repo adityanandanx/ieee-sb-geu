@@ -3,9 +3,15 @@ import { getEvent } from "../actions";
 import { NavSpacer } from "@/components/shared/nav/NavSpacer";
 import { Calendar } from "@/components/ui/calendar";
 import { Heading, Paragraph } from "@/components/ui/typography";
-import { Building2Icon, ImageIcon } from "lucide-react";
+import {
+  Building2Icon,
+  CalendarClockIcon,
+  ClockIcon,
+  ImageIcon,
+} from "lucide-react";
 import Image from "next/image";
 import { getGalleryImageUrlFromName } from "../utils";
+import { formatTimeStamp } from "@/lib/utils";
 
 type Props = {
   params: {
@@ -50,8 +56,19 @@ const Page = async ({ params: { id } }: Props) => {
         </div>
         <div className="flex flex-col max-w-screen-md mx-auto mb-48">
           <Heading size={"2"}>{event.title}</Heading>
-          <div className="flex items-center gap-4 mb-10">
-            <Building2Icon /> {event.venue}
+          <div className="flex flex-col gap-1 mt-2 mb-10 text-sm">
+            <span className="flex items-center gap-3">
+              <Building2Icon /> Venue: {event.venue}
+            </span>
+            <span className="flex items-center gap-3">
+              <ClockIcon /> Event: {formatTimeStamp(event.event_start)} -{" "}
+              {formatTimeStamp(event.event_end)}
+            </span>
+            <span className="flex items-center gap-3">
+              <CalendarClockIcon /> Registrations:{" "}
+              {formatTimeStamp(event.registration_start)} -{" "}
+              {formatTimeStamp(event.registration_start)}
+            </span>
           </div>
           <Paragraph className="whitespace-pre-wrap">{event.desc}</Paragraph>
         </div>

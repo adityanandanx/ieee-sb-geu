@@ -43,7 +43,7 @@ export const Footer = (props: Props) => {
         <div className="flex-1 flex flex-col gap-2">
           <Link href="/events">Events</Link>
           <Link href="/about">About</Link>
-          <Link href="https://www.instagram.com/tdhgeu" target="_blank">
+          <Link href="https://www.instagram.com/ieee.geu/" target="_blank">
             Contact
           </Link>
         </div>

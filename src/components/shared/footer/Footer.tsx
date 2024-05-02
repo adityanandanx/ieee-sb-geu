@@ -1,42 +1,41 @@
 import Image from "next/image";
 import React from "react";
-import logoImg from "@/components/shared/assets/logo.png";
 import Link from "next/link";
 import { InstagramIcon, LinkedinIcon } from "lucide-react";
 import { SocialLink } from "@/components/specific/social-link";
+import { Logo } from "@/components/logo";
 
 type Props = {};
 
 export const Footer = (props: Props) => {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-black text-white mt-20">
       <div className="max-w-screen-xl mx-auto py-20 px-5 xl:px-0 flex flex-col lg:flex-row gap-20">
         <div className="max-w-sm flex-1">
-          <Image
-            src={logoImg}
-            className="invert w-32 h-auto mb-4"
-            alt="TDH Logo"
-          />
-          <h1 className="text-2xl">The Designnovation Hub</h1>
+          <Logo variant="geu" className="h-32 mb-10" />
+          <h1 className="text-2xl">
+            IEEE Student Branch - Graphic Era Dehradun
+          </h1>
           <p className="text-muted-foreground text-sm">
-            Innovation and impact through design thinking, software development
-            and research.
+            Expand your connections, meet alumnis and learn from experienced
+            working professionals under the guidance of the IEEE GEU Student
+            Branch
           </p>
           <p className="mt-4 md:mt-10 text-sm">
-            &copy; 2024 The Designnovation Hub | All Rights Reserved
+            &copy; 2024 IEEE Student Branch - GEU | All Rights Reserved
           </p>
         </div>
         <div className="flex-1 dark flex flex-col gap-2">
           <h1 className="text-2xl">Socials</h1>
           <div className="flex gap-2">
             <SocialLink
-              name="TDH Instagram"
-              link="https://www.instagram.com/tdhgeu/"
+              name="IEEE GEU Instagram"
+              link="https://www.instagram.com/ieee.geu/"
               icon={<InstagramIcon />}
             />
             <SocialLink
-              name="TDH Linkedin"
-              link="https://www.linkedin.com/company/thedesignnovationhub"
+              name="IEEE GEU Linkedin"
+              link="https://www.linkedin.com/company/geu-ieee-student-branch/"
               icon={<LinkedinIcon />}
             />
           </div>

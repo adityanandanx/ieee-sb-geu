@@ -44,7 +44,7 @@ export default function LoginPage() {
   }
 
   return (
-    <section>
+    <>
       <div className="container flex flex-col items-center min-h-svh py-20 justify-center">
         <Form {...form}>
           <form
@@ -95,6 +95,6 @@ export default function LoginPage() {
           </form>
         </Form>
       </div>
-    </section>
+    </>
   );
 }

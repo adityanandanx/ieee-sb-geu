@@ -9,7 +9,7 @@ type Props = {
 
 const Page = ({ searchParams }: Props) => {
   return (
-    <main>
+    <>
       <section className="">
         <NavSpacer />
         <div className="container py-20">
@@ -27,7 +27,7 @@ const Page = ({ searchParams }: Props) => {
           <EventCards search={searchParams.search} />
         </Suspense>
       </section>
-    </main>
+    </>
   );
 };
 

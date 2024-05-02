@@ -7,10 +7,10 @@ const Ieee = dynamic(() => import("./_sections").then((mod) => mod.Ieee));
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Hero />
       <Benefits />
       <Ieee />
-    </main>
+    </>
   );
 }

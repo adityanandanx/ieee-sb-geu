@@ -8,8 +8,8 @@ import {
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { FadeInHeading } from "@/components/ui/typography";
 import { SquareCheckBigIcon } from "lucide-react";
-import { benefits } from "./data";
-import { Benefit } from "./types";
+import { benefits } from "./utils/data";
+import { Benefit } from "./utils/types";
 
 type Props = {};
 

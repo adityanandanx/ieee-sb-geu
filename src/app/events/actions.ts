@@ -10,17 +10,26 @@ export const getEvents = async () => {
   return events;
 };
 
-const getEventCoverImage = async (eventId: string) => {
+export const getEventCoverImage = async (eventId: string) => {
   const supabase = createClient();
   const { data, error } = await supabase
     .from("events")
     .select("cover_image_url")
-    .eq("id", eventId);
-  if (error) throw new Error(error.message);
-  if (!data[0].cover_image_url) return null;
-  const publicUrl = getGalleryImageUrlFromName(
-    eventId,
-    data[0].cover_image_url
-  );
+    .eq("id", eventId)
+    .single();
+  if (error) throw error;
+  if (!data.cover_image_url) return null;
+  const publicUrl = getGalleryImageUrlFromName(eventId, data.cover_image_url);
   return publicUrl;
+};
+
+export const getEvent = async (eventId: number) => {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from("events")
+    .select()
+    .eq("id", eventId)
+    .single();
+  if (error) throw error;
+  return data;
 };

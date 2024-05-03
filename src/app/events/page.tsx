@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { EventCards, EventCardsSkeleton } from "./_components/event-cards";
+import { EventCards, EventCardsSkeleton } from "./_components";
 import { Heading, Paragraph } from "@/components/ui/typography";
 import { NavSpacer } from "@/components/shared/nav/NavSpacer";
 

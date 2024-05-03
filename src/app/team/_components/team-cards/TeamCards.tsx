@@ -10,13 +10,14 @@ import { TeamCard, TeamCardSkeleton } from "./TeamCard";
 type Props = {
   search?: string;
   teamtype?: TeamType;
+  disableSearch?: boolean;
 };
 
-export const TeamCards = async ({ search, teamtype }: Props) => {
+export const TeamCards = async ({ search, teamtype, disableSearch }: Props) => {
   const team = await getTeam(undefined, teamtype);
   const { faculty, core, tech } = groupMembersByTeamType(
     team.filter((e) =>
-      search
+      search && !disableSearch
         ? e.fullname.toLowerCase().includes(search.toLowerCase()) ||
           e.position.toLowerCase().includes(search.toLowerCase())
         : true
@@ -27,10 +28,12 @@ export const TeamCards = async ({ search, teamtype }: Props) => {
 
   return (
     <div className="w-full flex flex-col gap-5">
-      <SearchBar
-        searchfor="members"
-        className="mb-10 max-w-lg self-start w-full"
-      />
+      {!disableSearch && (
+        <SearchBar
+          searchfor="members"
+          className="mb-10 max-w-lg self-start w-full"
+        />
+      )}
       {team.length === 0 ||
         (filteredLength === 0 && (
           <p className="block text-left w-full">

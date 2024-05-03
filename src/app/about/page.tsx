@@ -14,7 +14,8 @@ import {
 import { CheckCheckIcon } from "lucide-react";
 import { type CoreValue } from "./types";
 import { coreValues, goals } from "./data";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, Suspense } from "react";
+import { TeamCards, TeamCardsSkeleton } from "../team/_components";
 
 const About = () => {
   return (
@@ -123,6 +124,12 @@ const About = () => {
             ))}
           </CardContent>
         </FadeInCard>
+      </section>
+      <section className="container flex flex-col gap-10">
+        <Suspense fallback={<TeamCardsSkeleton />}>
+          <TeamCards teamtype="faculty" disableSearch />
+          <TeamCards teamtype="core" disableSearch />
+        </Suspense>
       </section>
     </>
   );

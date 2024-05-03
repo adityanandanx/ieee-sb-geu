@@ -23,6 +23,7 @@ export const Hero = (props: Props) => {
           alt="hero image"
           priority
           placeholder="blur"
+          quality={40}
         />
       </div>
       <div className="container flex items-center py-20 flex-1">

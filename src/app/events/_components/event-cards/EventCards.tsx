@@ -1,3 +1,4 @@
+import { Skeleton } from "@/components/ui/skeleton";
 import { getEvents } from "../../actions";
 import { EventCard, EventCardSkeleton } from "./EventCard";
 import { SearchBar } from "@/components/specific/search";
@@ -33,6 +34,7 @@ export const EventCards = async ({ search }: Props) => {
 export const EventCardsSkeleton = () => {
   return (
     <div className="w-full flex flex-col items-center gap-5">
+      <Skeleton className="mb-10 max-w-lg self-start w-full h-10" />
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 lg:gap-10 w-full">
         {[...Array(10)].map((_, i) => (
           <EventCardSkeleton key={i} />

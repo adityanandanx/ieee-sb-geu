@@ -54,6 +54,6 @@ export const TeamCardSkeleton = ({
   ...props
 }: HTMLProps<HTMLDivElement>) => {
   return (
-    <Skeleton className={cn("w-full h-[432px] p-10", className)} {...props} />
+    <Skeleton className={cn("w-full h-[176px] p-10", className)} {...props} />
   );
 };

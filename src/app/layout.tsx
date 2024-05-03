@@ -1,12 +1,11 @@
-import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
-import "./globals.css";
-import { cn } from "@/lib/utils";
-import { fontSans, fontDisplay } from "@/lib/fonts";
-import { Nav } from "@/components/shared/nav";
-import dynamic from "next/dynamic";
-import { RootLoading } from "@/components/ui/root-loading";
 import { Footer } from "@/components/shared/footer";
+import { Nav } from "@/components/shared/nav";
+import { RootLoading } from "@/components/ui/root-loading";
+import { fontDisplay, fontSans } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
+import dynamic from "next/dynamic";
+import "./globals.css";
 
 const Providers = dynamic(
   () => import("@/components/providers").then((mod) => mod.Providers),

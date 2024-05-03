@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { EventCards, EventCardsSkeleton } from "./_components";
 import { Heading, Paragraph } from "@/components/ui/typography";
-import { NavSpacer } from "@/components/shared/nav/NavSpacer";
+import { NavSpacer } from "@/components/shared/nav";
 
 type Props = {
   searchParams: { search: string };

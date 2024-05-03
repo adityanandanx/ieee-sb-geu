@@ -8,6 +8,7 @@ import React from "react";
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "../ui/sonner";
+import { TooltipProvider } from "../ui/tooltip";
 
 function makeQueryClient() {
   return new QueryClient({
@@ -46,7 +47,9 @@ export const Providers = ({ children }: BaseProps) => {
     <>
       <QueryClientProvider client={queryClient}>
         <LazyMotion strict features={loadFeatures}>
-          <MotionConfig transition={{}}>{children}</MotionConfig>
+          <MotionConfig transition={{}}>
+            <TooltipProvider>{children}</TooltipProvider>
+          </MotionConfig>
         </LazyMotion>
       </QueryClientProvider>
       <Toaster />

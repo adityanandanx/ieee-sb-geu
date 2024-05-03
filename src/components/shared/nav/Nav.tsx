@@ -1,9 +1,13 @@
 "use client";
+import { MenuIcon } from "lucide-react";
+
 import { Logo } from "@/components/logo";
 import { AnimatedLink, MotionLink } from "@/components/ui/animated-link";
-import { Variants, m } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import navLinks from "./nav-links";
 import { useEffect, useState } from "react";
-import { NavLinks } from "./NavLinks";
+import { Variants, m } from "framer-motion";
 
 const navVariants: Variants = {
   noBg: {
@@ -29,9 +33,8 @@ const navVariants: Variants = {
   },
 };
 
-type Props = {};
-
-export const Nav = (props: Props) => {
+export const Nav = () => {
+  const [open, setOpen] = useState(false);
   const [bg, setBg] = useState(false);
 
   useEffect(() => {
@@ -52,9 +55,9 @@ export const Nav = (props: Props) => {
       initial={"hidden"}
       variants={navVariants}
       animate={[bg ? "bg" : "noBg", "visible"]}
-      className="py-5 fixed top-0 w-full z-50"
+      className="py-2 md:py-5 fixed top-0 w-full left-0 z-50"
     >
-      <nav className="container flex justify-between items-center">
+      <nav className="container justify-between items-center hidden invisible md:flex md:visible">
         <MotionLink
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -63,34 +66,60 @@ export const Nav = (props: Props) => {
         >
           <Logo variant="white" className="w-24" /> SB GEU
         </MotionLink>
-        <NavLinks>
-          <AnimatedLink href="/events">Events</AnimatedLink>
-          <AnimatedLink href="/about">About</AnimatedLink>
-          <AnimatedLink href="/gallery">Gallery</AnimatedLink>
-          <AnimatedLink href="#" target="_blank">
-            Contact
-          </AnimatedLink>
-          {/* {user ? (
-            <Link href="/dashboard">
-              <Button size={"sm"}>Dashboard</Button>
-            </Link>
-          ) : (
-            <>
-              <Link href="/auth/login">
-                <Button variant={"secondary"} size={"sm"}>
-                  Log In
-                </Button>
-              </Link>
-              <Link href="/auth/signup">
-                <Button size={"sm"}>Sign Up</Button>
-              </Link>
-            </>
-          )} */}
-          {/* <div className="flex gap-1">
-            <ThemeDropdown />
-            {user ? <ProfileCardDialog /> : null}
-          </div> */}
-        </NavLinks>
+
+        <div className="flex flex-row p-0 items-center gap-10">
+          {navLinks.map((l) => (
+            <AnimatedLink
+              key={l.href + l.name}
+              href={l.href}
+              className="flex items-center justify-center rounded-lg"
+            >
+              <span className="">{l.name}</span>
+            </AnimatedLink>
+          ))}
+        </div>
+      </nav>
+      <nav className="flex container justify-between items-center md:hidden md:invisible">
+        <MotionLink
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          href={"/"}
+          className="flex items-end leading-5 gap-4 font-bold font-display text-lg"
+        >
+          <Logo variant="white" className="w-24" /> SB GEU
+        </MotionLink>
+        <Sheet open={open} onOpenChange={setOpen}>
+          <SheetTrigger asChild>
+            <Button size="icon" variant="ghost" className="">
+              <MenuIcon className="" />
+              <span className="sr-only">Toggle Menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="md:max-w-xs">
+            <div className="flex flex-col p-0">
+              <MotionLink
+                onClick={() => setOpen(false)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href={"/"}
+                className="flex items-end leading-5 gap-4 font-bold font-display text-lg my-10"
+              >
+                <Logo variant="white" className="w-24" /> SB GEU
+              </MotionLink>
+              {navLinks.map((l) => (
+                <AnimatedLink
+                  onClick={() => setOpen(false)}
+                  key={l.href + l.name}
+                  href={l.href}
+                  className="flex rounded-lg py-4 gap-4"
+                >
+                  {l.icon}
+                  <span className="">{l.name}</span>
+                </AnimatedLink>
+              ))}
+            </div>
+          </SheetContent>
+        </Sheet>
       </nav>
     </m.header>
   );

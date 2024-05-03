@@ -1,6 +1,6 @@
 import React from "react";
 import { getEvent } from "../actions";
-import { NavSpacer } from "@/components/shared/nav/NavSpacer";
+import { NavSpacer } from "@/components/shared/nav";
 import { Calendar } from "@/components/ui/calendar";
 import { Heading, Paragraph } from "@/components/ui/typography";
 import {

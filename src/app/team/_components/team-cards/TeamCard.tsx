@@ -1,20 +1,18 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import {
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-  FadeInCard,
+  FadeInCard
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TeamRow } from "@/lib/supabase/db";
 import { cn } from "@/lib/utils";
-import { ImageIcon, UserIcon } from "lucide-react";
-import Image from "next/image";
+import { UserIcon } from "lucide-react";
+import Link from "next/link";
 import { HTMLProps } from "react";
 import { getMemberAvatar } from "../../utils";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
 
 type Props = {
   member: TeamRow;
@@ -41,7 +39,6 @@ export const TeamCard = ({ member }: Props) => {
             <Link href={`?teamtype=${member.teamtype}`}>
               <Badge variant={"outline"}>{member.teamtype}</Badge>
             </Link>
-            {/* <CardDescription>{member.teamtype}</CardDescription> */}
           </div>
         </CardHeader>
       </FadeInCard>

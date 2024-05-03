@@ -1,11 +1,11 @@
 import { SearchBar } from "@/components/specific/search";
 import { Skeleton } from "@/components/ui/skeleton";
-import { getTeam } from "../../actions";
-import { TeamCard, TeamCardSkeleton } from "./TeamCard";
-import { groupMembersByTeamType } from "../../utils";
+import { Heading } from "@/components/ui/typography";
 import { TeamRow, TeamType } from "@/lib/supabase/db";
-import { Heading, Paragraph } from "@/components/ui/typography";
 import { SandwichIcon } from "lucide-react";
+import { getTeam } from "../../actions";
+import { groupMembersByTeamType } from "../../utils";
+import { TeamCard, TeamCardSkeleton } from "./TeamCard";
 
 type Props = {
   search?: string;

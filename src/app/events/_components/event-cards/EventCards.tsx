@@ -12,10 +12,12 @@ export const EventCards = async ({ search }: Props) => {
   return (
     <div className="w-full flex flex-col items-center gap-5">
       <SearchBar className="mb-10 max-w-lg self-start w-full" />
+      {events.length === 0 && (
+        <p className="block text-left w-full">
+          Sorry, no events available at the moment.
+        </p>
+      )}
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 lg:gap-10">
-        {events.length === 0 && (
-          <p>Sorry, no events available at the moment.</p>
-        )}
         {events
           .filter((e) =>
             search ? e.title.toLowerCase().includes(search.toLowerCase()) : true

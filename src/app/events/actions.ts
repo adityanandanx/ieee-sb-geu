@@ -3,11 +3,24 @@
 import { createClient } from "@/lib/supabase/server";
 import { getGalleryImageUrlFromName } from "./utils";
 
-export const getEvents = async () => {
+export const getEvents = async (count?: number) => {
   const supabase = createClient();
-  const { data: events, error } = await supabase.from("events").select();
-  if (error) throw error;
-  return events;
+  if (count) {
+    const { data: events, error } = await supabase
+      .from("events")
+      .select()
+      .limit(count)
+      .order("event_start");
+    if (error) throw error;
+    return events;
+  } else {
+    const { data: events, error } = await supabase
+      .from("events")
+      .select()
+      .order("event_start");
+    if (error) throw error;
+    return events;
+  }
 };
 
 export const getEventCoverImage = async (eventId: string) => {

@@ -46,7 +46,7 @@ export default function RootLayout({
       >
         <Providers>
           <Nav />
-          <main className="min-h-screen">{children}</main>
+          <main className="min-h-screen overflow-x-hidden">{children}</main>
           <Footer />
         </Providers>
       </body>

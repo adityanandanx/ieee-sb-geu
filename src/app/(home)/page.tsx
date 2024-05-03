@@ -5,6 +5,9 @@ const Benefits = dynamic(() =>
 const Hero = dynamic(() => import("./_sections").then((mod) => mod.Hero));
 const Ieee = dynamic(() => import("./_sections").then((mod) => mod.Ieee));
 const Events = dynamic(() => import("./_sections").then((mod) => mod.Events));
+const Testimonials = dynamic(() =>
+  import("./_sections").then((mod) => mod.Testimonials)
+);
 
 export default function Home() {
   return (
@@ -13,6 +16,7 @@ export default function Home() {
       <Benefits />
       <Ieee />
       <Events />
+      <Testimonials />
     </>
   );
 }

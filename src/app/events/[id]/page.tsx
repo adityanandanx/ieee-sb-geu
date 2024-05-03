@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { getEvent } from "../actions";
 import { NavSpacer } from "@/components/shared/nav";
 import { Calendar } from "@/components/ui/calendar";
@@ -59,23 +59,49 @@ const Page = async ({ params: { id } }: Props) => {
         <div className="flex flex-col max-w-screen-md mx-auto mb-48">
           <Heading size={"2"}>{event.title}</Heading>
           <div className="flex flex-col gap-1 mt-2 mb-10 text-sm">
-            <span className="flex items-center gap-3">
-              <Building2Icon /> Venue: {event.venue}
-            </span>
-            <span className="flex items-center gap-3">
-              <ClockIcon /> Event: {formatTimeStamp(event.event_start)} -{" "}
-              {formatTimeStamp(event.event_end)}
-            </span>
-            <span className="flex items-center gap-3">
-              <CalendarClockIcon /> Registrations:{" "}
-              {formatTimeStamp(event.registration_start)} -{" "}
-              {formatTimeStamp(event.registration_start)}
-            </span>
+            <Detail
+              name="Venue"
+              value={event.venue || "TBD"}
+              icon={<Building2Icon />}
+            />
+            <Detail
+              name="Event"
+              value={`${formatTimeStamp(event.event_start)} - ${formatTimeStamp(
+                event.event_end
+              )}`}
+              icon={<CalendarClockIcon />}
+            />
+            <Detail
+              name="Registrations"
+              value={`${formatTimeStamp(
+                event.registration_start
+              )} - ${formatTimeStamp(event.registration_end)}`}
+              icon={<ClockIcon />}
+            />
           </div>
           <Paragraph className="whitespace-pre-wrap">{event.desc}</Paragraph>
         </div>
       </div>
     </>
+  );
+};
+
+const Detail = ({
+  name,
+  value,
+  icon,
+}: {
+  name: string;
+  value: string;
+  icon: ReactNode;
+}) => {
+  return (
+    <span className="flex items-center gap-3">
+      <span>{icon}</span>
+      <span>
+        {name}: {value}
+      </span>
+    </span>
   );
 };
 

@@ -10,10 +10,15 @@
     "ui:add": "pnpm dlx shadcn-ui@latest add",
     "gen:dbtypes": "supabase gen types typescript --local > schema.gen.ts",
     "gen:migrations": "supabase db diff -f",
-    "db:dump": "supabase db dump --data-only > supabase/dump-data.sql"
+    "db:dump": "supabase db dump --data-only > supabase/dump-data.sql",
+    "db:push": "supabase db push",
+    "db:pull": "supabase db pull",
+    "db:reset": "supabase db reset"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
+    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-scroll-area": "^1.0.5",

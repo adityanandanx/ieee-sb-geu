@@ -3,6 +3,7 @@ import {
   ImagesIcon,
   InfoIcon,
   PhoneCallIcon,
+  UsersIcon,
 } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -17,6 +18,11 @@ const navLinks: NavLink[] = [
     href: "/events",
     name: "Events",
     icon: <CalendarIcon />,
+  },
+  {
+    href: "/team",
+    name: "Team",
+    icon: <UsersIcon />,
   },
   {
     href: "/about",

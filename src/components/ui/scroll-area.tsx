@@ -7,30 +7,39 @@ import { cn } from "@/lib/utils";
 
 interface ScrollAreaProps {
   snap?: "x" | "y";
+  snapMandatory?: boolean;
+  snapProximity?: boolean;
 }
 
 const ScrollArea = React.forwardRef<
   React.ElementRef<typeof ScrollAreaPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> &
     ScrollAreaProps
->(({ className, children, snap, ...props }, ref) => (
-  <ScrollAreaPrimitive.Root
-    ref={ref}
-    className={cn("relative overflow-hidden", className)}
-    {...props}
-  >
-    <ScrollAreaPrimitive.Viewport
-      className={cn("h-full w-full rounded-[inherit]", {
-        "snap-x snap-mandatory": snap === "x",
-        "snap-y snap-mandatory": snap === "y",
-      })}
+>(
+  (
+    { className, children, snap, snapMandatory, snapProximity, ...props },
+    ref
+  ) => (
+    <ScrollAreaPrimitive.Root
+      ref={ref}
+      className={cn("relative overflow-hidden", className)}
+      {...props}
     >
-      {children}
-    </ScrollAreaPrimitive.Viewport>
-    <ScrollBar />
-    <ScrollAreaPrimitive.Corner />
-  </ScrollAreaPrimitive.Root>
-));
+      <ScrollAreaPrimitive.Viewport
+        className={cn("h-full w-full rounded-[inherit]", {
+          "snap-x": snap === "x",
+          "snap-y": snap === "y",
+          "snap-mandatory": snapMandatory,
+          "snap-proximity": snapProximity,
+        })}
+      >
+        {children}
+      </ScrollAreaPrimitive.Viewport>
+      <ScrollBar />
+      <ScrollAreaPrimitive.Corner />
+    </ScrollAreaPrimitive.Root>
+  )
+);
 ScrollArea.displayName = ScrollAreaPrimitive.Root.displayName;
 
 const ScrollBar = React.forwardRef<

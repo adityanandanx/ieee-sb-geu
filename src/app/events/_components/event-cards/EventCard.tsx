@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { HTMLProps } from "react";
 import { Database } from "../../../../../schema.gen";
 import {
   CardContent,
@@ -11,7 +11,7 @@ import {
 import Image from "next/image";
 import { getGalleryImageUrlFromName } from "../../utils";
 import { ImageIcon } from "lucide-react";
-import { formatTimeStamp } from "@/lib/utils";
+import { cn, formatTimeStamp } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
 
 type Props = {
@@ -50,6 +50,11 @@ export const EventCard = ({ event }: Props) => {
   );
 };
 
-export const EventCardSkeleton = () => {
-  return <Skeleton className="w-full h-[432px] p-10"></Skeleton>;
+export const EventCardSkeleton = ({
+  className,
+  ...props
+}: HTMLProps<HTMLDivElement>) => {
+  return (
+    <Skeleton className={cn("w-full h-[432px] p-10", className)} {...props} />
+  );
 };

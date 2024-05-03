@@ -16,15 +16,15 @@ type Props = {};
 export const Benefits = (props: Props) => {
   return (
     <section className="relative min-h-svh max-h-[1024px] flex flex-col justify-center">
-      <div className="container py-20 px-0 lg:px-10 space-y-10">
-        <div className="px-10 lg:px-0">
+      <div className="container py-20 px-0 lg:px-8 space-y-10">
+        <div className="px-8 lg:px-0">
           <FadeInHeading size={"2"}>Why Join IEEE?</FadeInHeading>
           <FadeInHeading size={"4"} className="text-muted-foreground">
             Explore Membership Benefits
           </FadeInHeading>
         </div>
-        <ScrollArea snap="x" className="w-full snap-x">
-          <div className="flex gap-2 md:gap-5 flex-row mx-10 lg:mx-0">
+        <ScrollArea snap="x" snapMandatory className="w-full snap-x">
+          <div className="flex gap-2 md:gap-5 flex-row mx-8 lg:mx-0">
             {benefits.map((benefit, i) => (
               <BenefitCard key={i} {...benefit} />
             ))}

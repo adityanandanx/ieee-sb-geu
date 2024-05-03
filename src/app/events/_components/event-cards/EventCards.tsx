@@ -12,7 +12,10 @@ export const EventCards = async ({ search }: Props) => {
 
   return (
     <div className="w-full flex flex-col items-center gap-5">
-      <SearchBar className="mb-10 max-w-lg self-start w-full" />
+      <SearchBar
+        searchfor="events"
+        className="mb-10 max-w-lg self-start w-full"
+      />
       {events.length === 0 && (
         <p className="block text-left w-full">
           Sorry, no events available at the moment.

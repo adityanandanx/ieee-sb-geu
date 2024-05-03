@@ -7,9 +7,11 @@ import { useRouter, useSearchParams } from "next/navigation";
 import React, { HTMLProps, useCallback, useEffect, useState } from "react";
 import { debounce, throttle } from "lodash";
 
-interface Props extends HTMLProps<HTMLDivElement> {}
+interface Props extends HTMLProps<HTMLDivElement> {
+  searchfor: string;
+}
 
-export const SearchBar = ({ className, ...props }: Props) => {
+export const SearchBar = ({ className, searchfor, ...props }: Props) => {
   const router = useRouter();
   const sp = useSearchParams();
 
@@ -29,7 +31,7 @@ export const SearchBar = ({ className, ...props }: Props) => {
           const { value } = e.currentTarget;
           updateQueryString(value);
         }}
-        placeholder="Search for events"
+        placeholder={`Search for ${searchfor}`}
         style={{ paddingLeft: "40px" }}
       />
     </div>

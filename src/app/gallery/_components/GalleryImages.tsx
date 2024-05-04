@@ -24,7 +24,10 @@ export const GalleryImages = ({ imgUrls }: Props) => {
       <div className="flex flex-wrap items-start justify-stretch gap-5 overflow-hidden">
         {imgUrls.length === 0 && <>No images found</>}
         {imgUrls.map((url, i) => (
-          <FadeIn className="relative" key={url}>
+          <FadeIn className="relative z-0" key={url}>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10">
+              <Loader2Icon className="animate-spin" />
+            </div>
             <Image
               className="w-auto h-[256px] rounded cursor-pointer object-cover"
               onClick={() => {

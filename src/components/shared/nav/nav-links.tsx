@@ -35,7 +35,7 @@ const navLinks: NavLink[] = [
     icon: <ImagesIcon />,
   },
   {
-    href: "#",
+    href: "https://www.instagram.com/ieee.geu/",
     name: "Contact",
     icon: <PhoneCallIcon />,
   },

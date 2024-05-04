@@ -8,8 +8,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Loader2Icon } from "lucide-react";
 import Image from "next/image";
-import React, { useState } from "react";
+import { useState } from "react";
 
 type Props = {
   imgUrls: string[];
@@ -22,7 +23,7 @@ export const GalleryImages = ({ imgUrls }: Props) => {
     <>
       <div className="flex flex-wrap items-start justify-stretch gap-5 overflow-hidden">
         {imgUrls.map((url, i) => (
-          <FadeIn key={url}>
+          <FadeIn className="relative" key={url}>
             <Image
               className="w-auto h-[256px] rounded cursor-pointer object-cover"
               onClick={() => {
@@ -31,8 +32,9 @@ export const GalleryImages = ({ imgUrls }: Props) => {
               }}
               src={url}
               alt="image"
-              width={512}
+              width={256}
               height={256}
+              quality={50}
             />
           </FadeIn>
         ))}
@@ -45,7 +47,10 @@ export const GalleryImages = ({ imgUrls }: Props) => {
           >
             <CarouselContent className="">
               {imgUrls.map((url) => (
-                <CarouselItem key={url}>
+                <CarouselItem className="relative z-0" key={url}>
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10">
+                    <Loader2Icon className="animate-spin" />
+                  </div>
                   <Image
                     className="w-auto h-[98vh] rounded-lg object-contain cursor-pointer mx-auto"
                     src={url}

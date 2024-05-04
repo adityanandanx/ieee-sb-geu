@@ -13,6 +13,8 @@ import Image from "next/image";
 import { getGalleryImageUrlFromName } from "../utils";
 import { formatTimeStamp } from "@/lib/utils";
 import { notFound } from "next/navigation";
+import { getEventGallery } from "@/app/gallery/actions";
+import { GalleryImages } from "@/app/gallery/_components";
 
 type Props = {
   params: {
@@ -22,6 +24,7 @@ type Props = {
 
 const Page = async ({ params: { id } }: Props) => {
   const event = await getEvent(id);
+  const gallery = await getEventGallery(id);
   if (!event) notFound();
   return (
     <>
@@ -56,30 +59,35 @@ const Page = async ({ params: { id } }: Props) => {
             />
           )}
         </div>
-        <div className="flex flex-col max-w-screen-md mx-auto mb-48">
-          <Heading size={"2"}>{event.title}</Heading>
-          <div className="flex flex-col gap-1 mt-2 mb-10 text-sm">
-            <Detail
-              name="Venue"
-              value={event.venue || "TBD"}
-              icon={<Building2Icon />}
-            />
-            <Detail
-              name="Event"
-              value={`${formatTimeStamp(event.event_start)} - ${formatTimeStamp(
-                event.event_end
-              )}`}
-              icon={<CalendarClockIcon />}
-            />
-            <Detail
-              name="Registrations"
-              value={`${formatTimeStamp(
-                event.registration_start
-              )} - ${formatTimeStamp(event.registration_end)}`}
-              icon={<ClockIcon />}
-            />
+        <div className="flex flex-col lg:flex-row gap-10 mb-48">
+          <div className="flex flex-col max-w-screen-lg flex-1">
+            <Heading size={"2"}>{event.title}</Heading>
+            <div className="flex flex-col gap-1 mt-2 mb-10 text-sm">
+              <Detail
+                name="Venue"
+                value={event.venue || "TBD"}
+                icon={<Building2Icon />}
+              />
+              <Detail
+                name="Event"
+                value={`${formatTimeStamp(
+                  event.event_start
+                )} - ${formatTimeStamp(event.event_end)}`}
+                icon={<CalendarClockIcon />}
+              />
+              <Detail
+                name="Registrations"
+                value={`${formatTimeStamp(
+                  event.registration_start
+                )} - ${formatTimeStamp(event.registration_end)}`}
+                icon={<ClockIcon />}
+              />
+            </div>
+            <Paragraph className="whitespace-pre-wrap">{event.desc}</Paragraph>
           </div>
-          <Paragraph className="whitespace-pre-wrap">{event.desc}</Paragraph>
+          <div className="flex-1">
+            <GalleryImages imgUrls={gallery} />
+          </div>
         </div>
       </div>
     </>

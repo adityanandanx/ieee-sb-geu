@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import "./globals.css";
+import { Cursor } from "@/components/motion";
 
 const Providers = dynamic(
   () => import("@/components/providers").then((mod) => mod.Providers),
@@ -45,6 +46,7 @@ export default function RootLayout({
         )}
       >
         <Providers>
+          <Cursor />
           <Nav />
           <main className="min-h-screen overflow-x-hidden">{children}</main>
           <Footer />

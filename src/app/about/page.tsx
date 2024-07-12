@@ -16,18 +16,18 @@ import { type CoreValue } from "./types";
 import { coreValues, goals } from "./data";
 import { PropsWithChildren, Suspense } from "react";
 import { TeamCards, TeamCardsSkeleton } from "../team/_components";
+import { NavSpacer } from "@/components/shared/nav";
 
 const About = () => {
   return (
     <>
-      <section className="relative h-[640px]">
-        <Image
-          src={teamImg}
-          alt="Team image"
-          priority
-          className="absolute w-full h-full left-0 top-0 object-cover object-top"
-        />
-      </section>
+      <NavSpacer className="lg:hidden" />
+      <Image
+        src={teamImg}
+        alt="Team image"
+        priority
+        className="w-full h-auto object-cover object-top"
+      />
       <section className="container pt-20 max-w-2xl">
         <Heading>About Us</Heading>
         <Paragraph>

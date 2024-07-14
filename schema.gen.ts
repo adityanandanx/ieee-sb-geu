@@ -85,6 +85,7 @@ export type Database = {
           created_at: string
           fullname: string
           id: number
+          linkedin: string | null
           member_value: number
           position: string
           teamtype: Database["public"]["Enums"]["TeamType"]
@@ -94,6 +95,7 @@ export type Database = {
           created_at?: string
           fullname: string
           id?: number
+          linkedin?: string | null
           member_value?: number
           position?: string
           teamtype: Database["public"]["Enums"]["TeamType"]
@@ -103,6 +105,7 @@ export type Database = {
           created_at?: string
           fullname?: string
           id?: number
+          linkedin?: string | null
           member_value?: number
           position?: string
           teamtype?: Database["public"]["Enums"]["TeamType"]

@@ -4,26 +4,27 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  FadeInCard
+  FadeInCard,
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TeamRow } from "@/lib/supabase/db";
 import { cn } from "@/lib/utils";
-import { UserIcon } from "lucide-react";
+import { LinkedinIcon, UserIcon } from "lucide-react";
 import Link from "next/link";
 import { HTMLProps } from "react";
 import { getMemberAvatar } from "../../utils";
+import { Button } from "@/components/ui/button";
 
 type Props = {
   member: TeamRow;
 };
 
 export const TeamCard = ({ member }: Props) => {
-  return (
+  const TCard = () => (
     <div className="w-full">
-      <FadeInCard className="group z-0 relative overflow-hidden h-full w-full">
-        <CardHeader className="z-50 flex flex-col sm:flex-row sm:items-center gap-10">
-          <Avatar className="w-32 aspect-square h-auto mx-auto sm:mx-0">
+      <FadeInCard className="group z-0 relative overflow-hidden h-full w-full max-w-xs sm:max-w-none mx-auto">
+        <CardHeader className="z-50 flex flex-col sm:flex-row items-center text-center sm:text-left gap-10">
+          <Avatar className="w-32 aspect-square h-auto sm:mx-0">
             <AvatarImage
               src={(member.avatar && getMemberAvatar(member.avatar)) || ""}
               alt={member.fullname + " avatar"}
@@ -44,6 +45,15 @@ export const TeamCard = ({ member }: Props) => {
       </FadeInCard>
     </div>
   );
+
+  if (member.linkedin) {
+    return (
+      <a href={member.linkedin}>
+        <TCard />
+      </a>
+    );
+  }
+  return <TCard />;
 };
 
 export const TeamCardSkeleton = ({

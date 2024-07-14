@@ -20,8 +20,8 @@ export const TeamCards = async ({ search, teamtype, disableSearch }: Props) => {
       search && !disableSearch
         ? e.fullname.toLowerCase().includes(search.toLowerCase()) ||
           e.position.toLowerCase().includes(search.toLowerCase())
-        : true
-    )
+        : true,
+    ),
   );
 
   const filteredLength = faculty.length + core.length + tech.length;
@@ -40,7 +40,7 @@ export const TeamCards = async ({ search, teamtype, disableSearch }: Props) => {
             No members here... <SandwichIcon className="inline" />
           </p>
         ))}
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 lg:gap-10">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
         <TeamSection members={faculty} sectionName="faculty" />
         <TeamSection members={core} sectionName="core" />
         <TeamSection members={tech} sectionName="tech" />

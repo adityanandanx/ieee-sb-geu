@@ -13,7 +13,9 @@ export const getTeam = async (count?: number, teamtype?: TeamType) => {
     query = query.eq("teamtype", teamtype);
   }
 
-  const { data: team, error } = await query.order("fullname");
+  const { data: team, error } = await query
+    .order("member_value", { ascending: false })
+    .order("fullname");
   if (error) throw error;
 
   return team;

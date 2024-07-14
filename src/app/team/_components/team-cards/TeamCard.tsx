@@ -73,7 +73,7 @@ export const TeamCardSmall: TeamCard = ({ member }) => {
           </AvatarFallback>
         </Avatar>
         <div className="capitalize">
-          <CardTitle>{member.fullname}</CardTitle>
+          <CardTitle className="text-lg">{member.fullname}</CardTitle>
           <CardDescription>{member.position}</CardDescription>
         </div>
       </CardHeader>

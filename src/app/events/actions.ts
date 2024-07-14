@@ -10,14 +10,14 @@ export const getEvents = async (count?: number) => {
       .from("events")
       .select()
       .limit(count)
-      .order("event_start");
+      .order("event_start", { ascending: false });
     if (error) throw error;
     return events;
   } else {
     const { data: events, error } = await supabase
       .from("events")
       .select()
-      .order("event_start");
+      .order("event_start", { ascending: false });
     if (error) throw error;
     return events;
   }

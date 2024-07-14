@@ -19,7 +19,7 @@ export const SocialLink = ({ name, link, icon }: Props) => {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button size={"icon"} variant={"primary"}>
+          <Button size={"icon"} variant={"default"}>
             <Link target="_blank" href={link}>
               {icon}
             </Link>

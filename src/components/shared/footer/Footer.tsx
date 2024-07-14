@@ -16,7 +16,7 @@ export const Footer = (props: Props) => {
           {/* <h1 className="text-2xl">
             IEEE Student Branch - Graphic Era Dehradun
           </h1> */}
-          <p className="text-muted-foreground text-sm">
+          <p className="text-background opacity-70 text-sm">
             Expand your connections, meet alumnis and learn from experienced
             working professionals under the guidance of the IEEE GEU Student
             Branch

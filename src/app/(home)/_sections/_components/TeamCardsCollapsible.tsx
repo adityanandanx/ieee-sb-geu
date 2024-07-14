@@ -28,10 +28,10 @@ export const TeamCardsLimited = async ({
         }}
         className="w-full relative"
       >
-        <CarouselContent className="-ml-16 overflow-visible">
+        <CarouselContent className="-ml-0 overflow-visible">
           {shownMembers.map((m) => (
             <CarouselItem
-              className="pl-16 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5"
+              className="pl-0 basis-none sm:basis-1/3 lg:basis-1/5"
               key={m.id}
             >
               <TeamCardSmall key={m.id} member={m} />

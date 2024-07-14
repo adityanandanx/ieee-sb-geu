@@ -62,7 +62,7 @@ export const TeamCardSmall: TeamCard = ({ member }) => {
   const TCard = () => (
     <div className="group z-0 relative overflow-hidden h-full w-full max-w-xs mx-auto">
       <CardHeader className="z-50 flex flex-col items-center text-center gap-2">
-        <Avatar className="w-32 aspect-square h-auto">
+        <Avatar className="w-20 aspect-square h-auto">
           <AvatarImage
             src={(member.avatar && getMemberAvatar(member.avatar)) || ""}
             alt={member.fullname + " avatar"}

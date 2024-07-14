@@ -1,7 +1,4 @@
-import {
-  Open_Sans as FontSans,
-  Baloo_Bhai_2 as FontDisplay,
-} from "next/font/google";
+import { Open_Sans as FontSans, Syne as FontDisplay } from "next/font/google";
 
 export const fontSans = FontSans({
   subsets: ["latin"],

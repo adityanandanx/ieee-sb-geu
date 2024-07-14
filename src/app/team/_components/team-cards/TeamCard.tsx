@@ -15,15 +15,17 @@ import { HTMLProps } from "react";
 import { getMemberAvatar } from "../../utils";
 import { Button } from "@/components/ui/button";
 
-type Props = {
+export type TeamCardProps = {
   member: TeamRow;
 };
 
-export const TeamCard = ({ member }: Props) => {
+export type TeamCard = React.FC<TeamCardProps>;
+
+export const TeamCard: TeamCard = ({ member }) => {
   const TCard = () => (
     <div className="w-full">
-      <FadeInCard className="group z-0 relative overflow-hidden h-full w-full max-w-xs sm:max-w-none mx-auto">
-        <CardHeader className="z-50 flex flex-col sm:flex-row items-center text-center sm:text-left gap-10">
+      <div className="group z-0 relative overflow-hidden h-full w-full max-w-xs sm:max-w-none mx-auto">
+        <CardHeader className="z-50 flex flex-col sm:flex-row items-center text-center sm:text-left gap-2 sm:gap-4">
           <Avatar className="w-32 aspect-square h-auto sm:mx-0">
             <AvatarImage
               src={(member.avatar && getMemberAvatar(member.avatar)) || ""}
@@ -42,7 +44,7 @@ export const TeamCard = ({ member }: Props) => {
             </Link>
           </div>
         </CardHeader>
-      </FadeInCard>
+      </div>
     </div>
   );
 
@@ -56,6 +58,37 @@ export const TeamCard = ({ member }: Props) => {
   return <TCard />;
 };
 
+export const TeamCardSmall: TeamCard = ({ member }) => {
+  const TCard = () => (
+    <div className="group z-0 relative overflow-hidden h-full w-full max-w-xs mx-auto">
+      <CardHeader className="z-50 flex flex-col items-center text-center gap-2">
+        <Avatar className="w-32 aspect-square h-auto">
+          <AvatarImage
+            src={(member.avatar && getMemberAvatar(member.avatar)) || ""}
+            alt={member.fullname + " avatar"}
+            className="object-cover"
+          />
+          <AvatarFallback>
+            <UserIcon />
+          </AvatarFallback>
+        </Avatar>
+        <div className="capitalize">
+          <CardTitle>{member.fullname}</CardTitle>
+          <CardDescription>{member.position}</CardDescription>
+        </div>
+      </CardHeader>
+    </div>
+  );
+
+  if (member.linkedin) {
+    return (
+      <a href={member.linkedin}>
+        <TCard />
+      </a>
+    );
+  }
+  return <TCard />;
+};
 export const TeamCardSkeleton = ({
   className,
   ...props

@@ -1,30 +1,32 @@
+import { TeamCards, TeamCardsSkeleton } from "@/app/team/_components";
+import { TeamCardSmall } from "@/app/team/_components/team-cards/TeamCard";
+import { getTeam } from "@/app/team/actions";
 import { Button } from "@/components/ui/button";
 import { Heading, Paragraph } from "@/components/ui/typography";
+import { TeamRow } from "@/lib/supabase/db";
 import Link from "next/link";
 import { Suspense } from "react";
+import { TeamCardsLimited } from "./_components";
 
 type Props = {};
 
-export const Team = (props: Props) => {
+export const Team = async (props: Props) => {
+  const members = await getTeam();
   return (
-    <section className="relative min-h-svh flex flex-col justify-center">
+    <section
+      id="team"
+      className="relative min-h-svh flex flex-col justify-center"
+    >
       <div className="container py-10 gap-5 flex flex-col items-start">
-        <div>
-          <Heading size={"2"}>Explore Our Recent Events</Heading>
+        <div className="flex-1">
+          <Heading size={"2"}>Our team</Heading>
           <Paragraph className="text-muted-foreground">
-            Discover a wealth of past and upcoming opportunities designed to
-            fuel your learning and growth journey.
+            Meet the team who make IEEE GEU
           </Paragraph>
         </div>
-        <Suspense fallback={<></>}>{/* <EventsCards /> */}</Suspense>
-        <Link href={"/events"}>
-          <Button size="lg">Browse All Events</Button>
-        </Link>
+
+        <TeamCardsLimited members={members} />
       </div>
     </section>
   );
-};
-
-export const TeamCards = (props: Props) => {
-  return null;
 };

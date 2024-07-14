@@ -16,8 +16,8 @@ const navVariants: Variants = {
     borderColor: "rgba(0, 0, 0, 0)",
   },
   bg: {
-    backgroundColor: "rgba(0, 0, 0, .25)",
-    backdropFilter: "blur(12px)",
+    backgroundColor: "rgba(0, 0, 0, 255)",
+    backdropFilter: "blur(0px)",
   },
   hidden: {
     opacity: 0,

@@ -15,7 +15,7 @@ const Providers = dynamic(
       return <RootLoading />;
     },
     ssr: false,
-  }
+  },
 );
 
 const vercelUrl = process.env.VERCEL_URL;
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     vercelUrl
       ? `https://${vercelUrl}`
-      : `http://localhost:${process.env.PORT || 3000}`
+      : `http://localhost:${process.env.PORT || 3000}`,
   ),
 };
 
@@ -40,9 +40,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased dark overflow-x-hidden",
+          "min-h-screen bg-background font-sans dark antialiased overflow-x-hidden",
           fontSans.variable,
-          fontDisplay.variable
+          fontDisplay.variable,
         )}
       >
         <Providers>

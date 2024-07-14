@@ -5,7 +5,8 @@ import { TeamRow, TeamType } from "@/lib/supabase/db";
 import { SandwichIcon } from "lucide-react";
 import { getTeam } from "../../actions";
 import { groupMembersByTeamType } from "../../utils";
-import { TeamCard, TeamCardSkeleton } from "./TeamCard";
+import { TeamCard, TeamCardProps, TeamCardSkeleton } from "./TeamCard";
+import React from "react";
 
 type Props = {
   search?: string;
@@ -59,9 +60,9 @@ const TeamSection = ({
   if (members.length === 0) return;
   return (
     <>
-      <Heading size={"4"} className="capitalize col-span-full">
+      {/* <Heading size={"4"} className="capitalize col-span-full">
         {sectionName}
-      </Heading>
+      </Heading> */}
       {members.map((member) => (
         <TeamCard key={member.id} member={member} />
       ))}

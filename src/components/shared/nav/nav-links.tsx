@@ -5,12 +5,14 @@ import {
   PhoneCallIcon,
   UsersIcon,
 } from "lucide-react";
-import { ReactNode } from "react";
+import Link from "next/link";
+import { ComponentProps, HTMLProps, ReactNode } from "react";
 
 export type NavLink = {
   href: string;
   name: string;
   icon: ReactNode;
+  target?: ComponentProps<typeof Link>["target"];
 };
 
 const navLinks: NavLink[] = [
@@ -38,6 +40,7 @@ const navLinks: NavLink[] = [
     href: "https://www.instagram.com/ieee.geu/",
     name: "Contact",
     icon: <PhoneCallIcon />,
+    target: "_blank",
   },
 ];
 

@@ -72,6 +72,7 @@ export const Nav = () => {
             <AnimatedLink
               key={l.href + l.name}
               href={l.href}
+              target={l.target}
               className="flex items-center justify-center rounded-lg"
             >
               <span className="">{l.name}</span>
@@ -111,6 +112,7 @@ export const Nav = () => {
                   onClick={() => setOpen(false)}
                   key={l.href + l.name}
                   href={l.href}
+                  target={l.target}
                   className="flex rounded-lg py-4 gap-4"
                 >
                   {l.icon}

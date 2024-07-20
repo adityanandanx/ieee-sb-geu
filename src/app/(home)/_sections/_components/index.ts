@@ -1,1 +1,1 @@
-export * from "./TeamCardsCollapsible";
+export * from "./TeamCardsLimited";

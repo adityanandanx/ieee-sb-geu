@@ -12,7 +12,7 @@ export const Footer = (props: Props) => {
     <footer className="bg-white text-black mt-20 border-t">
       <div className="max-w-screen-xl mx-auto py-20 px-5 xl:px-0 flex flex-col lg:flex-row gap-20">
         <div className="max-w-sm flex-1">
-          <Logo variant="black" className="h-8 mb-10" />
+          <Logo variant="geu" className="h-16 mb-10" />
           {/* <h1 className="text-2xl">
             IEEE Student Branch - Graphic Era Dehradun
           </h1> */}

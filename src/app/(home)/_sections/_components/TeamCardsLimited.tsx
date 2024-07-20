@@ -1,3 +1,4 @@
+"use client";
 import { TeamCardSmall } from "@/app/team/_components/team-cards/TeamCard";
 import { Button } from "@/components/ui/button";
 import { TeamRow } from "@/lib/supabase/db";
@@ -9,8 +10,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
-export const TeamCardsLimited = async ({
+export const TeamCardsLimited = ({
   members,
   limit = undefined,
 }: {
@@ -19,12 +21,15 @@ export const TeamCardsLimited = async ({
 }) => {
   const shownMembers = members.slice(0, limit);
   const pad = 2;
+
   return (
     <div className="flex flex-col items-center gap-10 w-full px-4">
       <Carousel
+        plugins={[Autoplay({ delay: 5000 })]}
         opts={{
           align: "center",
           skipSnaps: true,
+          slidesToScroll: "auto",
         }}
         className="w-full relative"
       >

@@ -16,8 +16,11 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { login } from "./actions";
 import { LoginSchema } from "./form-schema";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  const router = useRouter();
+
   const { mutate, error, isPending } = useMutation({
     mutationKey: ["login"],
     mutationFn: async (data: LoginSchema) => {
@@ -29,6 +32,9 @@ export default function LoginPage() {
     },
     onError(error) {
       toast.error(error.message);
+    },
+    onSuccess() {
+      router.push("/dash");
     },
   });
 
@@ -68,7 +74,7 @@ export default function LoginPage() {
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription>Enter your personal email</FormDescription>
+                  <FormDescription>Enter your email</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}

@@ -3,7 +3,7 @@ import { getGallery } from "../actions";
 import { GalleryImages } from "./GalleryImages";
 import { GallerySkeleton } from "./GallerySkeleton";
 
-export const Gallery = async () => {
+export const Gallery = () => {
   return (
     <Suspense fallback={<GallerySkeleton />}>
       <GalleryWithoutSuspense />

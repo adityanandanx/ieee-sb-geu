@@ -5,7 +5,7 @@ import { Heading, Paragraph } from "@/components/ui/typography";
 
 type Props = {};
 
-const Page = async (props: Props) => {
+const Page = (props: Props) => {
   return (
     <>
       <section className="">

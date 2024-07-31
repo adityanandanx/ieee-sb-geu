@@ -14,7 +14,7 @@ import { getGalleryImageUrlFromName } from "../utils";
 import { formatTimeStamp } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import { getEventGallery } from "@/app/gallery/actions";
-import { GalleryImages } from "@/app/gallery/_components";
+import { EventGallery } from "@/app/gallery/_components";
 
 type Props = {
   params: {
@@ -91,7 +91,7 @@ const Page = async ({ params: { id } }: Props) => {
             <Paragraph className="whitespace-pre-wrap">{event.desc}</Paragraph>
           </div>
           <div className="flex-1">
-            <GalleryImages imgUrls={gallery} />
+            <EventGallery eventId={event.id} />
           </div>
         </div>
       </div>

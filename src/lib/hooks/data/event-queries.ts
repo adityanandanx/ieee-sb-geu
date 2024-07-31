@@ -35,3 +35,10 @@ export const useGallery = () => {
       : [],
   });
 };
+
+export const useEventGallery = (eventId: number) => {
+  return useQuery({
+    queryKey: ["events", eventId, "gallery"],
+    queryFn: async () => await getEventGallery(eventId),
+  });
+};

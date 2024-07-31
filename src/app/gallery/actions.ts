@@ -9,7 +9,6 @@ export const getEventGallery = async (eventId: number) => {
       sortBy: { column: "name", order: "asc" },
       // offset: 1,
     });
-  console.log({ eventId, data });
   if (error) throw error;
   const imageURLs: string[] = data.map(
     (d) =>

@@ -1,5 +1,5 @@
-import React from "react";
-import { Gallery } from "./_components";
+import React, { Suspense } from "react";
+import { Gallery, GallerySkeleton } from "./_components";
 import { NavSpacer } from "@/components/shared/nav";
 import { Heading, Paragraph } from "@/components/ui/typography";
 
@@ -21,7 +21,9 @@ const Page = (props: Props) => {
         </div>
       </section>
       <section className="container">
-        <Gallery />
+        <Suspense fallback={<GallerySkeleton />}>
+          <Gallery />
+        </Suspense>
       </section>
     </>
   );

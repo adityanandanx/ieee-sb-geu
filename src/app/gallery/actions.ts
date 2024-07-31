@@ -6,10 +6,11 @@ export const getEventGallery = async (eventId: number) => {
   const supabase = createClient();
   const { data, error } = await supabase.storage
     .from("event")
-    .list(`${eventId}/gallery`, {
+    .list(`${eventId}/gallery/`, {
       sortBy: { column: "name", order: "asc" },
-      offset: 1,
+      // offset: 1,
     });
+  console.log({ eventId, data });
   if (error) throw error;
   const imageURLs: string[] = data.map(
     (d) =>

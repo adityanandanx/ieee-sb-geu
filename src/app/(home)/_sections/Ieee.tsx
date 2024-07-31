@@ -31,7 +31,7 @@ export const Ieee = (props: Props) => {
           </CardHeader>
           <CardContent>
             <Paragraph>
-              IEEE is the worlds largest technical professional organization
+              IEEE is the world's largest technical professional organization
               dedicated to advancing technology for the benefit of humanity.
             </Paragraph>
             <Paragraph>
@@ -78,8 +78,8 @@ export const Ieee = (props: Props) => {
           <CardContent>
             <Paragraph>
               The IEEE GEU student branch provides a platform for members to
-              develop their technical skills and become future-ready talents in
-              the field of engineering & academic research. It offer events,
+              develop their technical and soft skills to become future-ready in
+              the field of engineering & academic research. We offer events,
               workshops, and various opportunities to stay updated with industry
               trends and gain valuable insights.
             </Paragraph>

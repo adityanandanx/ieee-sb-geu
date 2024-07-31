@@ -21,7 +21,7 @@ export const Team = async (props: Props) => {
         <div className="flex-1">
           <Heading size={"2"}>Our team</Heading>
           <Paragraph className="text-muted-foreground">
-            Meet the team who make IEEE GEU
+            Discover the people driving our innovation and excellence
           </Paragraph>
         </div>
 

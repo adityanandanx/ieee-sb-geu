@@ -5,7 +5,7 @@ import manishAvatar from "../assets/testimonials/manish.jpeg";
 export const benefits: Benefit[] = [
   {
     title: "Resources",
-    desc: "Resources and opportunities you need to keep on top of changes in technology",
+    desc: "Resources and opportunities you need to stay ahead of technological advancements.",
     content: [
       "Obtain access to the largest library of engineering and technology technical literature.",
       "Stay updated on the latest technology trends, industry news, and events.",

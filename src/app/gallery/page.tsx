@@ -21,9 +21,9 @@ const Page = (props: Props) => {
         </div>
       </section>
       <section className="container">
-        <Suspense fallback={<GallerySkeleton />}>
-          <Gallery />
-        </Suspense>
+        {/* <Suspense fallback={<GallerySkeleton />}> */}
+        <Gallery />
+        {/* </Suspense> */}
       </section>
     </>
   );

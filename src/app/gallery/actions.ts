@@ -1,5 +1,4 @@
-"use server";
-import { createClient } from "@/lib/supabase/server";
+import { createClient } from "@/lib/supabase/client";
 import { getEvents } from "../events/actions";
 
 export const getEventGallery = async (eventId: number) => {

@@ -1,7 +1,9 @@
+"use client";
 import React, { Suspense } from "react";
 import { getGallery } from "../actions";
 import { GalleryImages } from "./GalleryImages";
 import { GallerySkeleton } from "./GallerySkeleton";
+import { useQuery } from "@tanstack/react-query";
 
 // export const Gallery = () => {
 //   return (
@@ -11,7 +13,19 @@ import { GallerySkeleton } from "./GallerySkeleton";
 //   );
 // };
 
-export const Gallery = async () => {
-  const imgUrls = await getGallery();
-  return <GalleryImages imgUrls={imgUrls} />;
+export const Gallery = () => {
+  const { data, status, error } = useQuery({
+    queryKey: ["event", "gallery"],
+    queryFn: async () => await getGallery(),
+  });
+
+  switch (status) {
+    case "error":
+      return <>{error.message}</>;
+    case "pending":
+      return <GallerySkeleton />;
+  }
+
+  // const imgUrls = await getGallery();
+  return <GalleryImages imgUrls={data} />;
 };

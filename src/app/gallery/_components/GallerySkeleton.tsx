@@ -5,15 +5,17 @@ type Props = {};
 
 const GallerySkeleton = (props: Props) => {
   return (
-    <div className="flex flex-1 gap-5 flex-wrap">
-      {[...Array(10)].map((_, i) => (
+    // <div className="flex flex-1 gap-5 flex-wrap">
+    <>
+      {[...Array(4)].map((_, i) => (
         <Skeleton
           key={i}
           className="h-[256px] rounded cursor-pointer object-contain"
           style={{ width: 256 }}
         />
       ))}
-    </div>
+    </>
+    // </div>
   );
 };
 

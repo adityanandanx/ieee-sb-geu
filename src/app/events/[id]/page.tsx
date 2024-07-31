@@ -71,9 +71,13 @@ const Page = async ({ params: { id } }: Props) => {
               />
               <Detail
                 name="Event"
-                value={`${formatTimeStamp(
-                  event.event_start,
-                )} - ${formatTimeStamp(event.event_end)}`}
+                value={
+                  event.event_end != event.event_start
+                    ? `${formatTimeStamp(
+                        event.event_start,
+                      )} - ${formatTimeStamp(event.event_end)}`
+                    : formatTimeStamp(event.event_start)
+                }
                 icon={<CalendarClockIcon />}
               />
               <Detail

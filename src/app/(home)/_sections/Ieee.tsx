@@ -31,8 +31,9 @@ export const Ieee = (props: Props) => {
           </CardHeader>
           <CardContent>
             <Paragraph>
-              IEEE is the world's largest technical professional organization
-              dedicated to advancing technology for the benefit of humanity.
+              IEEE is the world&lsquo;s largest technical professional
+              organization dedicated to advancing technology for the benefit of
+              humanity.
             </Paragraph>
             <Paragraph>
               IEEE and its members inspire a global community to innovate for a

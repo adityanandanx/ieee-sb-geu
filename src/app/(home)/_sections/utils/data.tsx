@@ -17,8 +17,8 @@ export const benefits: Benefit[] = [
     title: "Opportunities",
     desc: "Get involved in standards development, attend conferences, and connect with professionals.",
     content: [
-      "Participate in standards development.",
-      "Attend and contribute to technology conferences.",
+      "Contribute and develop projects.",
+      "Attend and contribute to technology conferences and workshops.",
       "Connect with industry and academic professionals.",
       "Explore IEEE Internship opportunities.",
       "Participate in the SAC Awards Program.",

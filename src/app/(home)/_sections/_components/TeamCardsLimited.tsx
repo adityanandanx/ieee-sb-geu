@@ -25,11 +25,12 @@ export const TeamCardsLimited = ({
   return (
     <div className="flex flex-col items-center gap-10 w-full px-4">
       <Carousel
-        plugins={[Autoplay({ delay: 1000 })]}
+        plugins={[Autoplay({ delay: 3000 })]}
         opts={{
           align: "center",
           skipSnaps: true,
-          // slidesToScroll: "auto",
+          loop: true,
+          slidesToScroll: "auto",
         }}
         className="w-full relative"
       >

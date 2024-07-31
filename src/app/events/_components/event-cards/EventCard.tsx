@@ -40,7 +40,7 @@ export const EventCard = ({ event }: Props) => {
         <CardHeader className="z-50">
           <CardTitle>{event.title}</CardTitle>
           <CardDescription>
-            On: {formatTimeStamp(event.event_start)}
+            {formatTimeStamp(event.event_start)}
           </CardDescription>
         </CardHeader>
         <CardContent className="h-32">

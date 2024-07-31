@@ -10,7 +10,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
 
 export const TeamCardsLimited = ({
   members,
@@ -25,7 +24,6 @@ export const TeamCardsLimited = ({
   return (
     <div className="flex flex-col items-center gap-10 w-full px-4">
       <Carousel
-        plugins={[Autoplay({ delay: 3000 })]}
         opts={{
           align: "center",
           skipSnaps: true,

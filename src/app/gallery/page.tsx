@@ -1,11 +1,11 @@
-import React from "react";
-import { Gallery } from "./_components";
+import React, { Suspense } from "react";
+import { Gallery, GallerySkeleton } from "./_components";
 import { NavSpacer } from "@/components/shared/nav";
 import { Heading, Paragraph } from "@/components/ui/typography";
 
 type Props = {};
 
-const Page = async (props: Props) => {
+const Page = (props: Props) => {
   return (
     <>
       <section className="">
@@ -21,7 +21,9 @@ const Page = async (props: Props) => {
         </div>
       </section>
       <section className="container">
+        {/* <Suspense fallback={<GallerySkeleton />}> */}
         <Gallery />
+        {/* </Suspense> */}
       </section>
     </>
   );

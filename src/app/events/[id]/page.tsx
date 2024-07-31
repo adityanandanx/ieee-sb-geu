@@ -36,9 +36,10 @@ const Page = async ({ params: { id } }: Props) => {
               <Image
                 width={512}
                 height={512}
+                unoptimized
                 src={getGalleryImageUrlFromName(
                   event.id,
-                  event.cover_image_url
+                  event.cover_image_url,
                 )}
                 className="object-cover group-hover:scale-110 transition-transform h-full w-full -z-20"
                 alt={event.title + "image"}
@@ -71,14 +72,14 @@ const Page = async ({ params: { id } }: Props) => {
               <Detail
                 name="Event"
                 value={`${formatTimeStamp(
-                  event.event_start
+                  event.event_start,
                 )} - ${formatTimeStamp(event.event_end)}`}
                 icon={<CalendarClockIcon />}
               />
               <Detail
                 name="Registrations"
                 value={`${formatTimeStamp(
-                  event.registration_start
+                  event.registration_start,
                 )} - ${formatTimeStamp(event.registration_end)}`}
                 icon={<ClockIcon />}
               />

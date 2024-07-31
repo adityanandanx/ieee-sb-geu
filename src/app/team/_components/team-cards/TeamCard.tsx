@@ -39,9 +39,9 @@ export const TeamCard: TeamCard = ({ member }) => {
           <div className="capitalize">
             <CardTitle>{member.fullname}</CardTitle>
             <CardDescription>{member.position}</CardDescription>
-            <Link href={`?teamtype=${member.teamtype}`}>
+            {/* <Link href={`?teamtype=${member.teamtype}`}>
               <Badge variant={"outline"}>{member.teamtype}</Badge>
-            </Link>
+            </Link> */}
           </div>
         </CardHeader>
       </div>

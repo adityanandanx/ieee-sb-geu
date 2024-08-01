@@ -1,3 +1,4 @@
+"use client";
 import { Logo } from "@/components/logo";
 import { FadeIn } from "@/components/motion";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { Pr } from "@/components/ui/typography/Pr";
 import Image from "next/image";
 import geuLogo from "./assets/geu.png";
 import hero from "./assets/techlines.jpg";
+import { toast } from "sonner";
 
 type Props = {};
 
@@ -41,7 +43,16 @@ export const Hero = (props: Props) => {
             </Heading>
           </FadeIn>
           <FadeIn transition={{ delay: 0.6 }}>
-            <Button size={"lg"}>Join Us</Button>
+            <Button
+              onClick={() =>
+                toast.info("Registrations start soon!", {
+                  description: "Stay tuned for more info.",
+                })
+              }
+              size={"lg"}
+            >
+              Join Us
+            </Button>
           </FadeIn>
         </div>
       </div>

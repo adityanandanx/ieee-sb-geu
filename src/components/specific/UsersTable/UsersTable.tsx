@@ -24,10 +24,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { UsersRow } from "@/lib/supabase/types";
 import { useAllUsersQuery } from "./hooks/query";
 import UserAvatar from "./UserAvatar";
 import UserRolesSelect from "./UserRolesSelect";
+import { UsersRow } from "@/lib/supabase/db";
 
 export const columns: ColumnDef<UsersRow>[] = [
   // {

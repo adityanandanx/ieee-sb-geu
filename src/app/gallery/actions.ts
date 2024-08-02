@@ -10,7 +10,8 @@ export const getEventGallery = async (eventId: number) => {
       // offset: 1,
     });
   if (error) throw error;
-  const imageURLs: string[] = data.map(
+  const images = data.filter((d) => d.name != ".emptyFolderPlaceholder");
+  const imageURLs: string[] = images.map(
     (d) =>
       supabase.storage
         .from("event")

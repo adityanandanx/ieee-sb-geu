@@ -8,4 +8,8 @@ export type TeamRow = Database["public"]["Tables"]["team"]["Row"];
 export type TeamColumn = keyof EventsRow;
 export type TeamType = Database["public"]["Enums"]["TeamType"];
 
+export type UsersRow = Database["public"]["Tables"]["users"]["Row"];
+export type UsersColumn = keyof UsersRow;
+export type UserRole = Database["public"]["Enums"]["UserRole"];
+
 export type TypedSupabaseClient = SupabaseClient<Database>;

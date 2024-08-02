@@ -14,7 +14,7 @@ export const useEvents = () => {
       if (error) {
         console.error(error);
         toast.error("Something went wrong");
-        return null;
+        throw error;
       }
       return data;
     },

@@ -25,13 +25,13 @@ export const NumberCounter = ({
 }: Props) => {
   const [num, setNum] = useState(0);
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
+  const inView = useInView(ref, { once: false });
 
   const val = useSpring(0, {
     bounce: 0,
-    damping: 30,
-    mass: 0.75,
-    stiffness: 200,
+    damping: 40,
+    mass: 0.1,
+    stiffness: 100,
   });
   const scale = useTransform(val, [0, n], [0.2, 1]);
 

@@ -87,7 +87,7 @@ export const Nav = () => {
           href={"/"}
           className="flex items-end leading-5 gap-4 font-bold font-display text-lg"
         >
-          <Logo variant="white" className="w-24" /> SB GEU
+          <Logo variant="white" className="w-24" />
         </MotionLink>
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
@@ -105,7 +105,7 @@ export const Nav = () => {
                 href={"/"}
                 className="flex items-end leading-5 gap-4 font-bold font-display text-lg my-10"
               >
-                <Logo variant="white" className="w-24" /> SB GEU
+                <Logo variant="white" className="w-24" />
               </MotionLink>
               {navLinks.map((l) => (
                 <AnimatedLink

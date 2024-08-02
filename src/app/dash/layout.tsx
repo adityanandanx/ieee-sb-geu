@@ -1,17 +1,49 @@
-import { createClient } from "@/lib/supabase/server";
+import { getUser, getUserRole } from "@/lib/userActions";
 import { redirect } from "next/navigation";
-import { PropsWithChildren } from "react";
+import React, { ReactNode } from "react";
+import NameAlert from "./NameAlert/NameAlert";
+import { NavSpacer } from "@/components/shared/nav";
 
-const DashLayout = async ({ children }: PropsWithChildren) => {
-  const supabase = createClient();
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser();
-
-  if (!user) redirect("/login");
-
-  return <>{children}</>;
+type Props = {
+  children: ReactNode;
+  admin: ReactNode;
+  student: ReactNode;
+  volunteer: ReactNode;
 };
 
-export default DashLayout;
+const DashboardLayout = async ({
+  children,
+  admin,
+  student,
+  volunteer,
+}: Props) => {
+  const user = await getUser();
+  if (!user) redirect("/login");
+  const role = await getUserRole();
+  // console.log(role);
+  return (
+    <main>
+      <section>
+        {/* <NameAlert /> */}
+        <div className="container">
+          <NavSpacer />
+          {user.email}
+          {(() => {
+            switch (role) {
+              case "STUDENT":
+                return student;
+              case "VOLUNTEER":
+                return volunteer;
+              case "ADMIN":
+                return admin;
+              default:
+                return <>WTF</>;
+            }
+          })()}
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default DashboardLayout;

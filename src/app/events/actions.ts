@@ -1,7 +1,6 @@
-"use server";
-
-import { createClient } from "@/lib/supabase/server";
+import { createClient } from "@/lib/supabase/client";
 import { getGalleryImageUrlFromName } from "./utils";
+import { EventsColumn } from "@/lib/supabase/db";
 
 export const getEvents = async (count?: number) => {
   const supabase = createClient();
@@ -10,6 +9,7 @@ export const getEvents = async (count?: number) => {
       .from("events")
       .select()
       .limit(count)
+      .eq("published", true)
       .order("event_start", { ascending: false });
     if (error) throw error;
     return events;
@@ -23,7 +23,7 @@ export const getEvents = async (count?: number) => {
   }
 };
 
-export const getEventCoverImage = async (eventId: string) => {
+export const getEventCoverImage = async (eventId: number) => {
   const supabase = createClient();
   const { data, error } = await supabase
     .from("events")
@@ -43,6 +43,49 @@ export const getEvent = async (eventId: number) => {
     .select()
     .eq("id", eventId)
     .maybeSingle();
-  if (error) throw new Error(error.message);
+  if (error) throw error;
+  return data;
+};
+
+export const getEventsPaginated = async (
+  page: number,
+  limit = 10,
+  onlyPublished: boolean = false
+) => {
+  const supabase = createClient();
+  if (onlyPublished) {
+    const { data, error } = await supabase
+      .from("events")
+      .select()
+      .eq("published", onlyPublished)
+      .range(page * limit, page * limit + limit - 1)
+      .order("registration_end", { ascending: true, nullsFirst: false });
+    if (error) throw error;
+    return data;
+  }
+  const { data, error } = await supabase
+    .from("events")
+    .select()
+    .range(page * limit, page * limit + limit - 1)
+    .order("registration_end", { ascending: true, nullsFirst: false });
+  if (error) throw error;
+
+  return data;
+};
+
+export const searchEvents = async (
+  term: string,
+  column: Exclude<EventsColumn, "tags"> = "title",
+  page: number = 0,
+  limit = 10
+) => {
+  const supabase = createClient();
+  const { data, error } = await supabase
+    .from("events")
+    .select()
+    .ilike(column, `%${term}%`)
+    .range(page * limit, page * limit + limit - 1)
+    .order("registration_end", { ascending: true, nullsFirst: false });
+  if (error) throw error;
   return data;
 };

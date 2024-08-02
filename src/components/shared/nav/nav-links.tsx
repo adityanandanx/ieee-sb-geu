@@ -1,5 +1,6 @@
 import {
   CalendarIcon,
+  HammerIcon,
   ImagesIcon,
   InfoIcon,
   PhoneCallIcon,
@@ -35,6 +36,11 @@ const navLinks: NavLink[] = [
     href: "/gallery",
     name: "Gallery",
     icon: <ImagesIcon />,
+  },
+  {
+    href: "/projects",
+    name: "Projects",
+    icon: <HammerIcon />,
   },
   {
     href: "https://www.instagram.com/ieee.geu/",

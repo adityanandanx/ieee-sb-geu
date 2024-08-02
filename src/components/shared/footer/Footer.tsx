@@ -2,6 +2,13 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { InstagramIcon, LinkedinIcon } from "lucide-react";
+import {
+  SiDiscord,
+  SiDiscordHex,
+  SiInstagram,
+  SiLinkedin,
+} from "@icons-pack/react-simple-icons";
+
 import { SocialLink } from "@/components/specific/social-link";
 import { Logo } from "@/components/logo";
 
@@ -31,12 +38,17 @@ export const Footer = (props: Props) => {
             <SocialLink
               name="IEEE GEU Instagram"
               link="https://www.instagram.com/ieee.geu/"
-              icon={<InstagramIcon />}
+              icon={<SiInstagram />}
             />
             <SocialLink
               name="IEEE GEU Linkedin"
               link="https://www.linkedin.com/company/geu-ieee-student-branch/"
-              icon={<LinkedinIcon />}
+              icon={<SiLinkedin />}
+            />
+            <SocialLink
+              name="IEEE GEU Discord"
+              link="https://discord.gg/WS5K5GHMZQ"
+              icon={<SiDiscord />}
             />
           </div>
         </div>

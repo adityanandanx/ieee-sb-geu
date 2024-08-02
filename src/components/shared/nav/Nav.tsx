@@ -64,7 +64,7 @@ export const Nav = () => {
           href={"/"}
           className="flex items-end leading-5 gap-4 font-bold font-display text-lg"
         >
-          <Logo variant="white" className="w-24" /> SB GEU
+          <Logo variant="white" className="w-24" />
         </MotionLink>
 
         <div className="flex flex-row p-0 items-center gap-10">

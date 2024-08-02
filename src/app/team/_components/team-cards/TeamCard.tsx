@@ -50,7 +50,7 @@ export const TeamCard: TeamCard = ({ member }) => {
 
   if (member.linkedin) {
     return (
-      <a href={member.linkedin}>
+      <a target="_blank" rel="noopener noreferrer" href={member.linkedin}>
         <TCard />
       </a>
     );
@@ -86,7 +86,7 @@ export const TeamCardSmall: TeamCard = ({ member }) => {
 
   if (member.linkedin) {
     return (
-      <a href={member.linkedin}>
+      <a target="_blank" rel="noopener noreferrer" href={member.linkedin}>
         <TCard />
       </a>
     );

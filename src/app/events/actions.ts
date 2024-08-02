@@ -17,6 +17,7 @@ export const getEvents = async (count?: number) => {
     const { data: events, error } = await supabase
       .from("events")
       .select()
+      .eq("published", true)
       .order("event_start", { ascending: false });
     if (error) throw error;
     return events;

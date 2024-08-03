@@ -95,7 +95,7 @@ export default function LoginPage() {
                 </FormItem>
               )}
             />
-            <Button disabled={isPending} type="submit">
+            <Button isPending={isPending} type="submit">
               Submit
             </Button>
           </form>

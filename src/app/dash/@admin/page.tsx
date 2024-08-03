@@ -13,6 +13,7 @@ import { EventsRow } from "@/lib/supabase/db";
 import AllUsersView from "./AllUsersView";
 import { NavSpacer } from "@/components/shared/nav";
 import { Heading } from "@/components/ui/typography";
+import LogoutButton from "./LogoutButton";
 
 type Props = {
   searchParams: {
@@ -37,7 +38,10 @@ const AdminDashboard = async ({
 
   return (
     <>
-      <Heading className="py-20">Admin Dashboard</Heading>
+      <div className="py-20 flex flex-col gap-3 items-start">
+        <Heading className="">Admin Dashboard</Heading>
+        <LogoutButton />
+      </div>
       <div className="flex flex-col lg:flex-row">
         <div className="flex-1">
           <div className="mb-4 flex justify-between">

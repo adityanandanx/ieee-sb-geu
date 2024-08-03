@@ -27,7 +27,6 @@ export const EventCard = ({ event }: Props) => {
             <Image
               width={512}
               height={512}
-              unoptimized
               // src={""}
               src={getGalleryImageUrlFromName(event.id, event.cover_image_url)}
               className="object-cover group-hover:scale-110 transition-transform h-full w-full -z-20"

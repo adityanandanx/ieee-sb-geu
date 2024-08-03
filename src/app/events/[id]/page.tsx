@@ -34,7 +34,6 @@ const Page = async ({ params: { id } }: Props) => {
               <Image
                 width={512}
                 height={512}
-                unoptimized
                 src={getGalleryImageUrlFromName(
                   event.id,
                   event.cover_image_url

@@ -1,8 +1,8 @@
-import React, { ReactNode } from "react";
-import { getEvent } from "../actions";
+import { EventGallery } from "@/app/gallery/_components";
 import { NavSpacer } from "@/components/shared/nav";
 import { Calendar } from "@/components/ui/calendar";
 import { Heading, Paragraph } from "@/components/ui/typography";
+import { formatTimeStamp } from "@/lib/utils";
 import {
   Building2Icon,
   CalendarClockIcon,
@@ -10,11 +10,10 @@ import {
   ImageIcon,
 } from "lucide-react";
 import Image from "next/image";
-import { getGalleryImageUrlFromName } from "../utils";
-import { formatTimeStamp } from "@/lib/utils";
 import { notFound } from "next/navigation";
-import { getEventGallery } from "@/app/gallery/actions";
-import { EventGallery } from "@/app/gallery/_components";
+import { ReactNode } from "react";
+import { getEvent } from "../actions";
+import { getGalleryImageUrlFromName } from "../utils";
 
 type Props = {
   params: {
@@ -24,7 +23,6 @@ type Props = {
 
 const Page = async ({ params: { id } }: Props) => {
   const event = await getEvent(id);
-  const gallery = await getEventGallery(id);
   if (!event) notFound();
   return (
     <>
@@ -39,7 +37,7 @@ const Page = async ({ params: { id } }: Props) => {
                 unoptimized
                 src={getGalleryImageUrlFromName(
                   event.id,
-                  event.cover_image_url,
+                  event.cover_image_url
                 )}
                 className="object-cover group-hover:scale-110 transition-transform h-full w-full -z-20"
                 alt={event.title + "image"}
@@ -74,7 +72,7 @@ const Page = async ({ params: { id } }: Props) => {
                 value={
                   event.event_end != event.event_start
                     ? `${formatTimeStamp(
-                        event.event_start,
+                        event.event_start
                       )} - ${formatTimeStamp(event.event_end)}`
                     : formatTimeStamp(event.event_start)
                 }
@@ -83,7 +81,7 @@ const Page = async ({ params: { id } }: Props) => {
               <Detail
                 name="Registrations"
                 value={`${formatTimeStamp(
-                  event.registration_start,
+                  event.registration_start
                 )} - ${formatTimeStamp(event.registration_end)}`}
                 icon={<ClockIcon />}
               />

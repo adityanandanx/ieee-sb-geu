@@ -1,20 +1,18 @@
-import Image from "next/image";
-import React from "react";
-import Link from "next/link";
-import { InstagramIcon, LinkedinIcon } from "lucide-react";
+"use client";
 import {
   SiDiscord,
-  SiDiscordHex,
   SiInstagram,
   SiLinkedin,
 } from "@icons-pack/react-simple-icons";
+import Link from "next/link";
 
-import { SocialLink } from "@/components/specific/social-link";
 import { Logo } from "@/components/logo";
+import { SocialLink } from "@/components/specific/social-link";
 
 type Props = {};
 
 export const Footer = (props: Props) => {
+  if (process.env.NEXT_PUBLIC_UNDER_MAINTENANCE) return null;
   return (
     <footer className="bg-white text-black mt-20 border-t">
       <div className="max-w-screen-xl mx-auto py-20 px-5 xl:px-0 flex flex-col lg:flex-row gap-20">

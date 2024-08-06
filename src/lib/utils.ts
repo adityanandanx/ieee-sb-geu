@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export const formatTimeStamp = (
   ts: string | null | undefined,
-  null_msg: string = "Coming soon",
+  null_msg: string = "Coming soon"
 ) => {
   if (!ts) return null_msg;
   const t = new Date(ts);

@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import "./globals.css";
 import { Cursor } from "@/components/motion";
+import MaintenancePage from "./maintenance/page";
 
 const Providers = dynamic(
   () => import("@/components/providers").then((mod) => mod.Providers),
@@ -15,10 +16,12 @@ const Providers = dynamic(
       return <RootLoading />;
     },
     ssr: false,
-  },
+  }
 );
 
 const vercelUrl = process.env.VERCEL_URL;
+
+const underMaintenance = process.env.NEXT_PUBLIC_UNDER_MAINTENANCE;
 
 export const metadata: Metadata = {
   title: "IEEE Student Branch - Graphic Era University",
@@ -27,7 +30,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     vercelUrl
       ? `https://${vercelUrl}`
-      : `http://localhost:${process.env.PORT || 3000}`,
+      : `http://localhost:${process.env.PORT || 3000}`
   ),
 };
 
@@ -42,13 +45,15 @@ export default function RootLayout({
         className={cn(
           "min-h-screen bg-background font-sans dark antialiased overflow-x-hidden",
           fontSans.variable,
-          fontDisplay.variable,
+          fontDisplay.variable
         )}
       >
         <Providers>
           <Cursor />
           <Nav />
-          <main className="min-h-screen overflow-x-hidden">{children}</main>
+          <main className="min-h-screen overflow-x-hidden">
+            {underMaintenance ? <MaintenancePage /> : children}
+          </main>
           <Footer />
         </Providers>
       </body>

@@ -5,9 +5,9 @@ import { Logo } from "@/components/logo";
 import { AnimatedLink, MotionLink } from "@/components/ui/animated-link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import navLinks from "./nav-links";
-import { useEffect, useState } from "react";
 import { Variants, m } from "framer-motion";
+import { useEffect, useState } from "react";
+import navLinks from "./nav-links";
 
 const navVariants: Variants = {
   noBg: {
@@ -49,6 +49,8 @@ export const Nav = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (process.env.NEXT_PUBLIC_UNDER_MAINTENANCE) return null;
 
   return (
     <m.header

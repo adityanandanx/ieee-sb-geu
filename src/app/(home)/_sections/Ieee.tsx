@@ -62,7 +62,7 @@ export const Ieee = (props: Props) => {
             n={500}
             className="col-span-1"
           />
-          <NumberCounter text="Patents" n={40} className="col-span-1" />
+          <NumberCounter text="Projects" n={20} plus className="col-span-1" />
           <NumberCounter
             plus
             text="Publications"

@@ -12,7 +12,7 @@ type Props = {};
 
 export const Events = async (props: Props) => {
   return (
-    <section className="relative min-h-svh flex flex-col justify-center">
+    <section className="relative flex flex-col justify-center">
       <div className="container py-10 gap-5 flex flex-col items-start">
         <div>
           <Heading size={"2"}>Explore Our Recent Events</Heading>

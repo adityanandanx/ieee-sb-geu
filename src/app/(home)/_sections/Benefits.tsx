@@ -15,7 +15,7 @@ type Props = {};
 
 export const Benefits = (props: Props) => {
   return (
-    <section className="relative min-h-svh max-h-[1024px] flex flex-col justify-center">
+    <section className="relative max-h-[1024px] flex flex-col justify-center">
       <div className="container py-20 px-0 lg:px-8 space-y-10">
         <div className="px-8 lg:px-0">
           <FadeInHeading size={"2"}>Why Join IEEE?</FadeInHeading>

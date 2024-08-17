@@ -16,16 +16,22 @@ type Props = {
 
 export const TeamCards = async ({ search, teamtype, disableSearch }: Props) => {
   const team = await getTeam(undefined, teamtype);
-  const { faculty, core, tech } = groupMembersByTeamType(
+  const {
+    faculty,
+    core,
+    tech,
+    "Active Members": ActiveMembers,
+  } = groupMembersByTeamType(
     team.filter((e) =>
       search && !disableSearch
         ? e.fullname.toLowerCase().includes(search.toLowerCase()) ||
           e.position.toLowerCase().includes(search.toLowerCase())
-        : true,
-    ),
+        : true
+    )
   );
 
-  const filteredLength = faculty.length + core.length + tech.length;
+  const filteredLength =
+    faculty.length + core.length + tech.length + ActiveMembers.length;
 
   return (
     <div className="w-full flex flex-col gap-5">
@@ -44,6 +50,7 @@ export const TeamCards = async ({ search, teamtype, disableSearch }: Props) => {
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
         <TeamSection members={faculty} sectionName="faculty" />
         <TeamSection members={core} sectionName="core" />
+        <TeamSection members={ActiveMembers} sectionName="Active Members" />
         <TeamSection members={tech} sectionName="tech" />
       </div>
     </div>
@@ -60,9 +67,9 @@ const TeamSection = ({
   if (members.length === 0) return;
   return (
     <>
-      {/* <Heading size={"4"} className="capitalize col-span-full">
+      <Heading size={"4"} className="capitalize col-span-full">
         {sectionName}
-      </Heading> */}
+      </Heading>
       {members.map((member) => (
         <TeamCard key={member.id} member={member} />
       ))}

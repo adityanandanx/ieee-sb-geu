@@ -1,3 +1,4 @@
+
 export type Json =
   | string
   | number
@@ -115,18 +116,21 @@ export type Database = {
       users: {
         Row: {
           created_at: string
+          email: string
           full_name: string | null
           id: string
           role: Database["public"]["Enums"]["UserRole"]
         }
         Insert: {
           created_at?: string
+          email: string
           full_name?: string | null
           id: string
           role?: Database["public"]["Enums"]["UserRole"]
         }
         Update: {
           created_at?: string
+          email?: string
           full_name?: string | null
           id?: string
           role?: Database["public"]["Enums"]["UserRole"]
@@ -146,10 +150,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_user_role: {
+        Args: {
+          user_id: string
+        }
+        Returns: string
+      }
     }
     Enums: {
-      TeamType: "faculty" | "core" | "tech"
+      TeamType: "faculty" | "core" | "tech" | "Active Members"
       UserRole: "ADMIN" | "STUDENT" | "VOLUNTEER"
     }
     CompositeTypes: {
@@ -548,4 +557,3 @@ export type Enums<
   : PublicEnumNameOrOptions extends keyof PublicSchema["Enums"]
     ? PublicSchema["Enums"][PublicEnumNameOrOptions]
     : never
-

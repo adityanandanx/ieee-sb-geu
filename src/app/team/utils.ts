@@ -11,6 +11,7 @@ export const groupMembersByTeamType = (members: TeamRow[]) => {
     core: [],
     tech: [],
     faculty: [],
+    "Active Members": [],
   };
 
   for (const m of members) {

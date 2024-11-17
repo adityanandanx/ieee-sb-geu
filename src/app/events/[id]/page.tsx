@@ -3,6 +3,9 @@ import { NavSpacer } from "@/components/shared/nav";
 import { Calendar } from "@/components/ui/calendar";
 import { Heading, Paragraph } from "@/components/ui/typography";
 import { formatTimeStamp } from "@/lib/utils";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
+
 import {
   Building2Icon,
   CalendarClockIcon,
@@ -85,7 +88,13 @@ const Page = async ({ params: { id } }: Props) => {
                 icon={<ClockIcon />}
               />
             </div>
-            <Paragraph className="whitespace-pre-wrap">{event.desc}</Paragraph>
+            <div className="prose dark:prose-invert">
+              <MDXRemote
+                source={event.desc}
+                options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+              />
+            </div>
+            {/* <Paragraph className="whitespace-pre-wrap">{event.desc}</Paragraph> */}
           </div>
           <div className="flex-1">
             <EventGallery eventId={event.id} />

@@ -18,6 +18,7 @@ const updateEvent = async (
     .select("id")
     .single();
   if (error) throw error;
+  revalidatePath(`/events/${data.id}`);
   return data.id;
 };
 
@@ -38,6 +39,7 @@ const createEvent = async (
 const deleteEvent = async (id: string) => {
   const { error } = await supabase.from("events").delete().eq("id", id);
   if (error) throw error;
+  revalidatePath(`/events/${id}`);
   return;
 };
 

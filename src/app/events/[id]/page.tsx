@@ -60,8 +60,8 @@ const Page = async ({ params: { id } }: Props) => {
             />
           )}
         </div>
-        <div className="flex flex-col lg:flex-row gap-10 mb-48">
-          <div className="flex flex-col max-w-screen-lg flex-1">
+        <div className="flex flex-col gap-10 mb-48">
+          <div className="flex flex-col w-full flex-1">
             <Heading size={"2"}>{event.title}</Heading>
             <div className="flex flex-col gap-1 mt-2 mb-10 text-sm">
               <Detail
@@ -88,7 +88,7 @@ const Page = async ({ params: { id } }: Props) => {
                 icon={<ClockIcon />}
               />
             </div>
-            <div className="prose dark:prose-invert">
+            <div className="prose dark:prose-invert w-full max-w-none">
               <MDXRemote
                 source={event.desc}
                 options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}

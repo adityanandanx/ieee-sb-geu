@@ -24,6 +24,8 @@ type Props = {
   };
 };
 
+export const revalidate = 10;
+
 const Page = async ({ params: { id } }: Props) => {
   const event = await getEvent(id);
   if (!event) notFound();

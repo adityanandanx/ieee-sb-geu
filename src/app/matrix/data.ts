@@ -142,3 +142,4 @@ export const problemStatements: ProblemStatement[] = [
       "You have the freedom to bring your own innovative idea within the given domain! In this competition, participants are encouraged to explore their creativity and technical skills by developing a functional protoype aligned with the specified domain. Identify a real-world problem or opportunity, design a functional product, and showcase your coding expertise.The goal is to create a complete, polished solution that demonstrates originality, impact, and technical excellence.",
   },
 ];
+

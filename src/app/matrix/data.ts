@@ -30,6 +30,13 @@ export const problemStatements: ProblemStatement[] = [
       "A critical challenge in professional development where individuals struggle to make informed decisions about their career trajectories in an ever-evolving job market. The system needs to analyze individual profiles, current market trends, emerging technologies, and industry requirements to provide personalized career guidance, including skill development recommendations, job role suggestions, and customized learning pathways that align with both personal interests and market demands.",
   },
   {
+    code: "GEN05",
+    title: "Student Innovation",
+    domain: "Generative AI",
+    detail:
+      "You have the freedom to bring your own innovative idea within the given domain! In this competition, participants are encouraged to explore their creativity and technical skills by developing a functional protoype aligned with the specified domain. Identify a real-world problem or opportunity, design a functional product, and showcase your coding expertise.The goal is to create a complete, polished solution that demonstrates originality, impact, and technical excellence.",
+  },
+  {
     code: "MLAI01",
     title: "Early Disease Detection System",
     domain: "Machine Learning and Artificial Intelligence",
@@ -56,6 +63,13 @@ export const problemStatements: ProblemStatement[] = [
     domain: "Machine Learning and Artificial Intelligence",
     detail:
       "An urban mobility challenge where inefficient traffic management leads to congestion and increased commute times. The system needs to process real-time traffic data from multiple sources, analyze traffic patterns, predict congestion points, and dynamically optimize traffic signal timings across the network to improve overall traffic flow and reduce average commute times while considering emergency vehicle priorities and pedestrian safety.",
+  },
+  {
+    code: "MLAI05",
+    title: "Student Innovation",
+    domain: "Machine Learning and Artificial Intelligence",
+    detail:
+      "You have the freedom to bring your own innovative idea within the given domain! In this competition, participants are encouraged to explore their creativity and technical skills by developing a functional protoype aligned with the specified domain. Identify a real-world problem or opportunity, design a functional product, and showcase your coding expertise.The goal is to create a complete, polished solution that demonstrates originality, impact, and technical excellence.",
   },
   {
     code: "CLC01",
@@ -86,6 +100,13 @@ export const problemStatements: ProblemStatement[] = [
       "An educational technology challenge where e-learning platforms struggle with performance during high-traffic periods. The system needs to provide intelligent scaling capabilities, optimize content delivery, manage user authentication securely, and maintain consistent performance during peak usage while providing personalized learning experiences and progress tracking for each user.",
   },
   {
+    code: "CLC05",
+    title: "Student Innovation",
+    domain: "Cloud Computing",
+    detail:
+      "You have the freedom to bring your own innovative idea within the given domain! In this competition, participants are encouraged to explore their creativity and technical skills by developing a functional protoype aligned with the specified domain. Identify a real-world problem or opportunity, design a functional product, and showcase your coding expertise.The goal is to create a complete, polished solution that demonstrates originality, impact, and technical excellence.",
+  },
+  {
     code: "IOT01",
     title: "Intelligent Water Distribution Monitor",
     domain: "Internet of Things (IoT)",
@@ -112,5 +133,12 @@ export const problemStatements: ProblemStatement[] = [
     domain: "Internet of Things (IoT)",
     detail:
       "A public safety challenge where communities in disaster-prone areas need timely warning systems. The system needs to deploy and manage a network of environmental sensors, process multiple data streams to detect early warning signs of various natural disasters, and coordinate with emergency response systems to provide timely alerts and evacuation guidance while ensuring reliable operation during adverse conditions.",
+  },
+  {
+    code: "IOT05",
+    title: "Student Innovation",
+    domain: "Internet of Things (IoT)",
+    detail:
+      "You have the freedom to bring your own innovative idea within the given domain! In this competition, participants are encouraged to explore their creativity and technical skills by developing a functional protoype aligned with the specified domain. Identify a real-world problem or opportunity, design a functional product, and showcase your coding expertise.The goal is to create a complete, polished solution that demonstrates originality, impact, and technical excellence.",
   },
 ];
